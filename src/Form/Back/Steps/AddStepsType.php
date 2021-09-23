@@ -30,9 +30,11 @@ class AddStepsType extends AbstractType
         ))
         ->add('quote', CheckboxType::class, [
             'label' => 'Devis',
+            'disabled' => 'true'
         ])
         ->add('test', CheckboxType::class, [
             'label' => 'Test',
+            'disabled' => 'true'
         ])
         ->add('submit', SubmitType::class, [
             'label' => 'Enregistrer',

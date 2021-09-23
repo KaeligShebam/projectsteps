@@ -36,18 +36,14 @@ class StepsController extends AbstractController
     {
         $stepsAdd = new Steps();
         $form = $this->createForm(AddStepsType::class, $stepsAdd);
-        $notification = null;
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($stepsAdd);
             $this->entityManager->flush();
-            $notification = 'L`historique a bien été ajouté';
-            $stepsAdd = new Steps();
-            $form = $this->createForm(AddStepsType::class, $stepsAdd);
+            return $this->redirectToRoute("steps_list_admin");
         }
         return $this->render('back/steps/add.html.twig', [
-            'form_steps_add_admin' => $form->createView(),
-            'notification' => $notification
+            'form_steps_add_admin' => $form->createView()
         ]);
     }
 
