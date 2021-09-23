@@ -1,0 +1,48 @@
+{% extends 'back/index.html.twig' %}
+
+{% block title %}Liste des clients - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}
+
+{% block body %}
+	<div>
+		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Liste des clients - Il y a
+				{% if totalCustomer <= 1 %}
+					{{ totalCustomer }} <span> client </span>
+				{% else %}
+					{{ totalCustomer }} <span> clients </span>
+				{% endif %}{% endblock %}
+				
+	</div>
+	{% block admin_utilisateur %}
+		<div class="container">
+			<div class="d-flex flex-row-reverse">
+				<a href="{{ path('customer_add_admin') }}" title="Ajouter un client" type="button" class="btn btn-outline-light mb-3">
+					<i class="fas fa-plus-circle"></i>
+				</a>
+			</div>
+
+			<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">Nom du client</th>
+                        <th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for customer in customer %}
+						<tr>
+							<td>{{customer.name}}</td>
+							<td>
+								<a href="{{ path('customer_modify_admin', {"id": customer.id}) }}"><i class="fas fa-cog"></i></a>
+								|
+								<a href="{{ path('customer_detete_admin', {"id": customer.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer un client')"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<p class="text-center color-blue-dark-shebam">Si tu supprimes un client, penses à verifier avant si une tâche ne lui est pas attribuée.</p>
+		</div>
+	{% endblock %}
+{% endblock %}
+
+
