@@ -4,37 +4,35 @@
 
 {% block body %}
 	<div>
-		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}{% endblock %}		
+		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Étapes projets{% endblock %}		
 	</div>
 	{% block admin_utilisateur %}
-		<div class="container">
-			<div class="d-flex flex-row-reverse">
-				<a href="{{ path('steps_add_admin') }}" title="Ajouter un client" type="button" class="btn btn-outline-light mb-3">
-					<i class="fas fa-plus-circle"></i>
-				</a>
-			</div>
-
-			<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
-				<thead class="thead-light">
-					<tr>
-						<th scope="col">Nom du client</th>
-                        <th scope="col">Devis</th>
-                        <th scope="col">Test</th>
-                        <th scope="col">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for step in steps %}
-						<tr>
-							<td>{{ step.customer }}</td>
-                            <td><input type="checkbox" class="quote" {{ (step.quote) ? 'checked' : ''}} data-id="{{step.id}}"></td>
-                            <td><input type="checkbox" class="maclass2" {{ (step.test) ? 'checked' : ''}} data-test="{{step.id}}"></td>
-							<td><a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a></td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+		<div class="d-flex flex-row-reverse">
+			<a href="{{ path('steps_add_admin') }}" title="Ajouter un client" type="button" class="btn btn-outline-light mb-3">
+				<i class="fas fa-plus-circle"></i>
+			</a>
 		</div>
+
+		<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Nom du client</th>
+					<th scope="col">Devis</th>
+					<th scope="col">Test</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for step in steps %}
+					<tr>
+						<td>{{ step.customer }}</td>
+						<td><input type="checkbox" class="quote" {{ (step.quote) ? 'checked' : ''}} data-id="{{step.id}}"></td>
+						<td><input type="checkbox" class="maclass2" {{ (step.test) ? 'checked' : ''}} data-test="{{step.id}}"></td>
+						<td><a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	{% endblock %}
 {% endblock %}
 

@@ -8,15 +8,14 @@
 		<br>ID: {{ customer.id }}{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
-		<div class="container">
-			{% if notification %}
-				<hr>
-					<div class="alert alert-success">{{ notification }}<br>
-						<hr>
-						<a href="{{ path('customer_list_admin') }}">Retourner sur la liste des clients</a>
-					</div>
-				<hr>
-			{% endif %}
+		{% if notification %}
+			<hr>
+				<div class="alert alert-success">{{ notification }}<br>
+					<hr>
+					<a href="{{ path('customer_list_admin') }}">Retourner sur la liste des clients</a>
+				</div>
+			<hr>
+		{% endif %}
 		<div class="was-validated">
 			<div class="row">
 				<div class="col-6">
@@ -25,5 +24,4 @@
 			</div>
 		</div>
 	{% endblock %}
-	</div>
 {% endblock %}

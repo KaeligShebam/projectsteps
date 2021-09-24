@@ -12,7 +12,8 @@
 		</title>
 
 		<!-- Bootstrap CSS CDN -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
 
 		<!-- Font Awesome JS -->
@@ -25,102 +26,121 @@
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />	
 
 	</head>
-	<body>
-		<div class="wrapper">
-			<nav id="sidebar" class="bg-yellow-shebam">
-				<div class="sidebar-header bg-white-shebam">
-					<a href="{{ path('admin') }}" title="Retourner sur le tableau de bord">Étapes Clients</a>
-				</div>
-				<ul class="list-unstyled components color-white-shebam">
-					<li>
-						<a href="{{ path('admin') }}" title="Aller sur le tableau de bord"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a>
-					</li>
-					<li>
-						<a href="{{ path('steps_list_admin') }}" title="Aller sur le tableau de bord"><i class="fas fa-check"></i> Étapes</a>
-					</li>
-					<li>
-						<a href="{{ path('customer_list_admin') }}" title="Aller sur la liste des clients"><i class="fas fa-user-tie"></i> Clients</a>
-					</li>
-					<li>
-						<a href="{{ path('user_list_admin') }}" title="Aller sur la liste de l'équipe"><i class="fas fa-users"></i> Équipe</a>
-					</li>
-					{# <li>
-						<a href="{{ path('download_list_admin') }}" title="Aller sur la liste des téléchargements"><i class="fas fa-download"></i> Téléchargement</a>
-					</li> #}
-					<li>
-						<a href="{{ path('changelog') }}" title="Aller sur l'historique des changemnents de la list des tâches"><i class="fas fa-clipboard-list"></i> Changements</a>
-					</li>
-				</ul>
-			</nav>
+<body class="app">   	
+    <header class="app-header fixed-top">	   	            
+        <div class="app-header-inner">  
+	        <div class="container-fluid py-2">
+		        <div class="app-header-content"> 
+		            <div class="row justify-content-between align-items-center">
+				    <div class="col-auto">
+					    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+					    </a>
+				    </div>
+		            
+		            <div class="app-utilities col-auto">
+			            <div class="app-utility-item align-items-center">    
+				            <a href="{{ path('home') }}">
+								{{ app.user.firstname }} {{ app.user.lastname }}
+					        </a>			        
+				        </div>
+			            <div class="app-utility-item">
+				            <a href="">Retour à l'accueil</a>
+					    </div>
+			            
+			            <div class="app-utility-item">
+				            <a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt" title="Se déconnecter"></i></a>
+			            </div>
+		            </div>
+		        </div>
+	            </div>
+	        </div>
+        </div>
+        <div id="app-sidepanel" class="app-sidepanel"> 
+	        <div id="sidepanel-drop" class="sidepanel-drop"></div>
+	        <div class="sidepanel-inner d-flex flex-column">
+		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+		        <div class="app-branding">
+		            <a class="app-logo" href="{{ path('steps_list_admin') }}"><span class="logo-text">Étapes projets</span></a>
 	
-			<!-- Page Content Holder -->
-			<div id="content">
-				<nav class="navbar navbar-expand-lg bg-white-shebam">
-					<div class="container-fluid">
-					
-							<button type="button" id="sidebarCollapse" class="navbar-btn">
-								<span></span>
-								<span></span>
-								<span></span>
-							</button>
-							
-							<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-								<i class="fas fa-align-justify"></i>
-							</button><br>
-							<div class="container title-dashboard">
-								{% block titre_admin_page %}<h4 class="color-blue-dark-shebam">
-									{% block title_titre_admin_page_base %}<a href="{{ path('admin') }} " title="Retourner sur la liste des tâches">Administration</a> <i class="fas fa-arrow-right"></i>
-									{% endblock %}Tableau de Bord / {{app.user.firstname}} {{app.user.lastname}}</h4>
-								{% endblock %}
-						</div>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="nav navbar-nav ml-auto">
-								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('account') }}" title="Aller sur mon compte">{{app.user.firstname}}
-										{{app.user.lastname}}</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('home') }}">
-										Retour à l'accueil
-									</a>
-								</li>
-								<li class"nav-item">
-									<a class="nav-link" href="{{ path('app_logout') }}">
-										<i class="fas fa-sign-out-alt" title="Se déconnecter"></i>
-									</i>
-								</li>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container-xxl">
+		        </div>
+		        
+			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+				    <ul class="app-menu list-unstyled">
+					    <li class="nav-item">
+					        <a class="nav-link" href="{{ path('steps_list_admin') }}">
+						        <span class="nav-icon">
+									<i class="fas fa-users"></i>
+						         </span>
+		                         <span class="nav-link-text">Étapes</span>
+					        </a>
+					    </li>
+					    <li class="nav-item">
+					        <a class="nav-link" href="{{ path('user_list_admin') }}">
+						        <span class="nav-icon">
+									<i class="fas fa-users"></i>
+						         </span>
+		                         <span class="nav-link-text">Clients</span>
+					        </a>
+					    </li>
+					    <li class="nav-item">
+					        <a class="nav-link" href="{{ path('user_list_admin') }}">
+						        <span class="nav-icon">
+									<i class="fas fa-users"></i>
+						         </span>
+		                         <span class="nav-link-text">Équipe</span>
+					        </a>
+					    </li>    
+				    </ul>
+			    </nav>
+			    <div class="app-sidepanel-footer">
+				    <nav class="app-nav app-nav-footer">
+					    <ul class="app-menu footer-menu list-unstyled">
+						    <li class="nav-item">
+						        <a class="nav-link" href="{{ path('changelog') }}">
+										<i class="fas fa-undo-alt"></i>
+			                        <span class="nav-link-text">Changement</span>
+						        </a>
+						    </li>
+					    </ul>
+					</nav>
+			    </div>
+	        </div>
+	    </div>
+    </header>
+    
+    <div class="app-wrapper">
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    <h1 class="app-page-title">
+					{% block titre_admin_page %}<h4 class="color-blue-dark-shebam">
+						{% block title_titre_admin_page_base %}<a href="{{ path('steps_list_admin') }} " title="Retourner sur la liste des tâches">Administration</a> <i class="fas fa-arrow-right"></i>
+						{% endblock %}Tableau de Bord / {{app.user.firstname}} {{app.user.lastname}}</h4>
+					{% endblock %}
+				</h1>
+			    
 			{% block admin_utilisateur %}
-			{% endblock %}
-		</div>
+			{% endblock %}		    
+		    </div>
+	    </div> 
+    </div>   					
 
-		<!-- jQuery CDN - Slim version (=without AJAX) -->
+ 
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script><!-- Popper.JS -->
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
-		</script><!-- Bootstrap JS -->
-		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
 		<script src="{{ asset('assets/js/bootstrap-table.js') }}"></script>
 		<script src="{{ asset('assets/js/custom.js') }}"></script>
 		<script src="{{ asset('assets/js/checkbox.js') }}"></script>
+		<script src="{{ asset('assets/js/chart.min.js') }}"></script>
+		<script src="{{ asset('assets/js/app.js') }}"></script>
+		<script src="{{ asset('assets/js/index-charts.js') }}"></script>
+
 		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-		<script type="text/javascript">$(document).ready(function () {
-		$('#sidebarCollapse').on('click', function () {
-		$('#sidebar').toggleClass('active');
-		$(this).toggleClass('active');});
-		});
-		</script>
 	</body>
 </html>
