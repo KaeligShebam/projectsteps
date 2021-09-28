@@ -9,10 +9,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class AddStepsType extends AbstractType
 {
@@ -82,19 +83,69 @@ class AddStepsType extends AbstractType
             'mapped' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
-        ->add('online', DateTimeType::class, [
-            'label' => 'Mise en ligne',
-            'required' => false,
-            'label_attr' => ['class' => 'label-custom'],
-            'widget' => 'single_text',
-            'minutes' => ['00', '15', '30', '45']
-        ])
         ->add('webdesignvalidated', CheckboxType::class, [
             'label' => 'Maquette Validée',
             'required' => false,
             'mapped' => false,      
             'label_attr' => ['class' => 'label-custom'],
         ])
+            ->add('commentcustomerbrief', TextareaType::class, [
+                'label' => 'Brief Client',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentcomingsoon', TextareaType::class, [
+                'label' => 'Page de Maintenance',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentcustomercontentreception', TextareaType::class, [
+                'label' => 'Contenu client',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentpicturesreception', TextareaType::class, [
+                'label' => 'Photos',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentwebdesignprogress', TextareaType::class, [
+                'label' => 'Maquette en cours',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentwebdesignwait', TextareaType::class, [
+                'label' => 'Maquette en attente',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentwebdesignvalidated', TextareaType::class, [
+                'label' => 'Maquette validée',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentwebintegration', TextareaType::class, [
+                'label' => 'Intégration',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentwebtraining', TextareaType::class, [
+                'label' => 'Formation',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentonline', TextareaType::class, [
+                'label' => 'Mise en ligne (Commentaire)',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('online', DateType::class, [
+                'label' => 'Mise en ligne',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text',
+                'mapped' => true
+            ])
         ->add('submit', SubmitType::class, [
             'label' => 'Enregistrer',
             'attr' => ['class' => 'btn-submit-admin-shebam'],

@@ -1,5 +1,5 @@
-var exampleModal = document.getElementById('popup-commentcustomerbrief')
-exampleModal.addEventListener('show.bs.modal', function (event) {
+var customerbriefpopup = document.getElementById('popup-commentcustomerbrief')
+customerbriefpopup.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
     var button = event.relatedTarget
     // Extract info from data-bs-* attributes
@@ -9,8 +9,8 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
     // and then do the updating in a callback.
     //
     // Update the modal's content.
-    var modalTitle = exampleModal.querySelector('.modal-title')
-    var modalBody = exampleModal.querySelector('.modal-body')
+    var modalTitle = customerbriefpopup.querySelector('.modal-title')
+    var modalBody = customerbriefpopup.querySelector('.modal-body')
 
     modalTitle.textContent = 'Commentaire(s)'
     modalBody.textContent = commentcustomerbrief
@@ -18,76 +18,152 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 // Popup 2
 var comingsoonpopup = document.getElementById('popup-commentcomingsoon')
-comingsoonpopup.addEventListener('show.bs.modal', function (event2) {
+comingsoonpopup.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
-    var button2 = event2.relatedTarget
+    var button = event.relatedTarget
     // Extract info from data-bs-* attributes
-    var recipient = button2.getAttribute('data-bs-id')
-    var commentcomingsoon = button2.getAttribute('data-bs-commentcomingsoon')
+    var recipient = button.getAttribute('data-bs-id')
+    var commentcomingsoon = button.getAttribute('data-bs-commentcomingsoon')
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
     // Update the modal's content.
-    var modalTitle2 = comingsoonpopup.querySelector('.modal-title')
-    var modalBody2 = comingsoonpopup.querySelector('.modal-body')
+    var modalTitle = comingsoonpopup.querySelector('.modal-title')
+    var modalBody = comingsoonpopup.querySelector('.modal-body')
 
-    modalTitle2.textContent = 'Commentaire(s)'
-    modalBody2.textContent = commentcomingsoon
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentcomingsoon
 })
 
 // Popup 3
 var customercontentreceptionpopup = document.getElementById('popup-commentcustomercontentreception')
-customercontentreceptionpopup.addEventListener('show.bs.modal', function (event3) {
+customercontentreceptionpopup.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
-    var button3 = event3.relatedTarget
+    var button = event.relatedTarget
     // Extract info from data-bs-* attributes
-    var recipient = button3.getAttribute('data-bs-id')
-    var commentcustomercontentreception = button3.getAttribute('data-bs-commentcustomercontentreception')
+    var recipient = button.getAttribute('data-bs-id')
+    var commentcustomercontentreception = button.getAttribute('data-bs-commentcustomercontentreception')
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
     // Update the modal's content.
-    var modalTitle3 = customercontentreceptionpopup.querySelector('.modal-title')
-    var modalBody3 = customercontentreceptionpopup.querySelector('.modal-body')
+    var modalTitle = customercontentreceptionpopup.querySelector('.modal-title')
+    var modalBody = customercontentreceptionpopup.querySelector('.modal-body')
 
-    modalTitle3.textContent = 'Commentaire(s)'
-    modalBody3.textContent = commentcustomercontentreception
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentcustomercontentreception
 })
 
 // Popup 4
 var picturesreceptionpopup = document.getElementById('popup-commentpicturesreception')
-picturesreceptionpopup.addEventListener('show.bs.modal', function (event3) {
+picturesreceptionpopup.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
-    var button3 = event3.relatedTarget
+    var button = event.relatedTarget
     // Extract info from data-bs-* attributes
-    var recipient = button3.getAttribute('data-bs-id')
-    var commentpicturesreception = button3.getAttribute('data-bs-commentpicturesreception')
+    var recipient = button.getAttribute('data-bs-id')
+    var commentpicturesreception = button.getAttribute('data-bs-commentpicturesreception')
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
     // Update the modal's content.
-    var modalTitle3 = picturesreceptionpopup.querySelector('.modal-title')
-    var modalBody3 = picturesreceptionpopup.querySelector('.modal-body')
+    var modalTitle = picturesreceptionpopup.querySelector('.modal-title')
+    var modalBody = picturesreceptionpopup.querySelector('.modal-body')
 
-    modalTitle3.textContent = 'Commentaire(s)'
-    modalBody3.textContent = commentpicturesreception
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentpicturesreception
 })
 
-// Popup 4
+// Popup 5
 var webdesignprogresspopup = document.getElementById('popup-commentwebdesignprogress')
-webdesignprogresspopup.addEventListener('show.bs.modal', function (event4) {
+webdesignprogresspopup.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
-    var button4 = event4.relatedTarget
+    var button = event.relatedTarget
     // Extract info from data-bs-* attributes
-    var recipient = button4.getAttribute('data-bs-id')
-    var commentwebdesignprogress = button4.getAttribute('data-bs-commentwebdesignprogress')
+    var recipient = button.getAttribute('data-bs-id')
+    var commentwebdesignprogress = button.getAttribute('data-bs-commentwebdesignprogress')
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
     // Update the modal's content.
-    var modalTitle4 = webdesignprogresspopup.querySelector('.modal-title')
-    var modalBody4 = webdesignprogresspopup.querySelector('.modal-body')
+    var modalTitle = webdesignprogresspopup.querySelector('.modal-title')
+    var modalBody = webdesignprogresspopup.querySelector('.modal-body')
 
-    modalTitle4.textContent = 'Commentaire(s)'
-    modalBody4.textContent = commentwebdesignprogress
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentwebdesignprogress
+})
+
+// Popup 5
+var webdesignpwaitspopup = document.getElementById('popup-commentwebdesignwait')
+webdesignpwaitspopup.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-id')
+    var commentwebdesignwait = button.getAttribute('data-bs-commentwebdesignwait')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = webdesignpwaitspopup.querySelector('.modal-title')
+    var modalBody = webdesignpwaitspopup.querySelector('.modal-body')
+
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentwebdesignwait
+})
+
+// Popup 6
+var webdesignwalidatedpopup = document.getElementById('popup-commentwebdesignvalidated')
+webdesignwalidatedpopup.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-id')
+    var commentwebdesignvalidated = button.getAttribute('data-bs-commentwebdesignvalidated')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = webdesignwalidatedpopup.querySelector('.modal-title')
+    var modalBody = webdesignwalidatedpopup.querySelector('.modal-body')
+
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentwebdesignvalidated
+})
+
+// Popup 7
+var webintegrationpopup = document.getElementById('popup-commentwebintegration')
+webintegrationpopup.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-id')
+    var commentwebintegration = button.getAttribute('data-bs-commentwebintegration')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = webintegrationpopup.querySelector('.modal-title')
+    var modalBody = webintegrationpopup.querySelector('.modal-body')
+
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentwebintegration
+})
+
+// Popup 8
+var onlinepopup = document.getElementById('popup-commentonline')
+onlinepopup.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-id')
+    var commentonline = button.getAttribute('data-bs-commentonline')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = onlinepopup.querySelector('.modal-title')
+    var modalBody = onlinepopup.querySelector('.modal-body')
+
+    modalTitle.textContent = 'Commentaire(s)'
+    modalBody.textContent = commentonline
 })
