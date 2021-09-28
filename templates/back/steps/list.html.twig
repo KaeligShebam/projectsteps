@@ -7,34 +7,90 @@
 		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Étapes projets{% endblock %}		
 	</div>
 	{% block admin_utilisateur %}
-		<div class="d-flex flex-row-reverse">
+		<div class="d-flex">
 			<a href="{{ path('steps_add_admin') }}" title="Ajouter un client" type="button" class="btn btn-outline-light mb-3">
 				<i class="fas fa-plus-circle"></i>
 			</a>
 		</div>
-
 		<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">Nom du client</th>
-					<th scope="col">Devis</th>
-					<th scope="col">Test</th>
+					<th scope="col">Brief client</th>
+					<th scope="col">Coming soon</th>
+					<th scope="col">Contenu client</th>
+					<th scope="col">Photos</th>
+					<th scope="col">Maquette en cours</th>
+					<th scope="col">Maquette en attente</th>
+					<th scope="col">Maquette validée</th>
+					<th scope="col">Intégration</th>
+					<th scolpe="col">Formation</th>
+					<th scope="col">Mise en ligne</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for step in steps %}
-					<tr>
+					<tr class="form-switch">
 						<td>{{ step.customer }}</td>
-						<td><input type="checkbox" class="quote" {{ (step.quote) ? 'checked' : ''}} data-id="{{step.id}}"></td>
-						<td><input type="checkbox" class="maclass2" {{ (step.test) ? 'checked' : ''}} data-test="{{step.id}}"></td>
-						<td><a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a></td>
+						<td>
+							<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}}>
+							{% if step.commentcustomerbrief is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"><i class="fas fa-eye"></i>{% endif %}
+						</td>
+
+
+						<td>
+							<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}}>
+							{% if step.commentcomingsoon is empty %}
+							{% else %}
+							<a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						
+						<td><input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}"></td>
+						<td><input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}"></td>
+						<td><input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}"></td>
+						<td><input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}"></td>
+						<td><input type="checkbox" class="webdesignvalidated form-check-input" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}"></td>
+						<td><input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}"></td>
+						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}"></td>
+						<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
+						<td>
+						<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
+						|
+						<a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>	
+						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+		{# Popup #}
+		{# Comment customer brief #}
+		<div class="modal fade" id="popup-commentcustomerbrief" tabindex="-1" aria-labelledby="popup-commentcustombrief-base" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="popup-commentcustombrief-base"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="popup-commentcomingsoon" aria-labelledby="popup-commentcomingsoon-base" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="popup-commentcomingsoon-base"></h5>
+				</div>
+				<div class="modal-body">
+				</div>
+			</div>
+		</div>
 	{% endblock %}
 {% endblock %}
-
-
 

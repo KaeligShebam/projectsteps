@@ -8,11 +8,11 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class AddStepsType extends AbstractType
 {
@@ -28,13 +28,72 @@ class AddStepsType extends AbstractType
             ],
             'label_attr' => ['class' => 'label-custom'],
         ))
-        ->add('quote', CheckboxType::class, [
-            'label' => 'Devis',
-            'disabled' => 'true'
+        ->add('customerbrief', CheckboxType::class, [
+            'label' => 'Brief Client',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
         ])
-        ->add('test', CheckboxType::class, [
-            'label' => 'Test',
-            'disabled' => 'true'
+        ->add('comingsoon', CheckboxType::class, [
+            'label' => 'Comming Soon En Ligne',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('customercontentreception', CheckboxType::class, [
+            'label' => 'Réception Contenu Client',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('picturesreception', CheckboxType::class, [
+            'label' => 'Reception Photos',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('webdesignprogress', CheckboxType::class, [
+            'label' => 'Maquette En Cours',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('webdesignwait', CheckboxType::class, [
+            'label' => 'Maquette En Attente De Validation',
+            'required' => false,
+            'mapped' => false,     
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('webdesignvalidated', CheckboxType::class, [
+            'label' => 'Maquette validée',
+            'required' => false,
+            'mapped' => false,      
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('webintegration', CheckboxType::class, [
+            'label' => 'Intégration',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('webtraining', CheckboxType::class, [
+            'label' => 'Formation',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('online', DateTimeType::class, [
+            'label' => 'Mise en ligne',
+            'required' => false,
+            'label_attr' => ['class' => 'label-custom'],
+            'widget' => 'single_text',
+            'minutes' => ['00', '15', '30', '45']
+        ])
+        ->add('webdesignvalidated', CheckboxType::class, [
+            'label' => 'Maquette Validée',
+            'required' => false,
+            'mapped' => false,      
+            'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('submit', SubmitType::class, [
             'label' => 'Enregistrer',

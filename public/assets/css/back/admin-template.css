@@ -83,3 +83,12 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 .changelog p{clear: both;}
 .changelog p:first-child{text-align: center;color:#000000 ; font-weight: 400;font-size: 20px;text-decoration: underline;}
 .pointer-event{pointer-events: none;}
+
+/* Popup Task */
+.box {width: 40%;margin: 70px auto;background: rgba(255,255,255,0.2);padding: 35px;border: 2px solid #fff;border-radius: 20px/50px;background-clip: padding-box;text-align: center;} 
+.button {font-size: 1em;padding: 10px;color: #fff;border: 2px solid #06D85F;border-radius: 20px/50px;text-decoration: none;cursor: pointer;transition: all 0.3s ease-out;}.overlay {position: fixed;top: -40px;bottom: 0;left: 0;right: 0;background: rgba(0, 0, 0, 0.7);transition: opacity 500ms;visibility: hidden;opacity: 0;padding-bottom: 15px;}.overlay:target {visibility: visible;opacity: 1;}
+.popup {margin: auto;padding: 40px;border-radius: 5px;width: 30%;position: relative;top:20%;}
+.popup h2 {margin-top: 0;color: #333;text-align: center;}
+.popup .close {position: absolute;top: 46px;right: 30px;transition: all 200ms;font-size: 30px;font-weight: bold;text-decoration: none;color: var(--color-yellow-dark);}
+.popup .close:hover {color: var(--blue-dark-shebam);transition: 0.5s ease-in-out;}
+.popup .content {max-height: 30%;overflow: auto;}
