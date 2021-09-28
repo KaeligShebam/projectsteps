@@ -3,7 +3,7 @@
 namespace App\Form\Front;
 
 use App\Entity\User;
-use App\Form\ShowHidePasswordType;
+use App\Form\Front\ShowHidePasswordType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;

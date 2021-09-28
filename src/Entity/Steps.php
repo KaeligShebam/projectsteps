@@ -89,6 +89,46 @@ class Steps
      */
     private $commentcomingsoon;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentcustomercontentreception;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentpicturesreception;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentwebdesignprogress;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentwebdesignwait;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentwebdesignvalidated;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentwebintegration;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentwebtraining;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentonline;
+
     public function __construct()
     {
         $this->customers = new ArrayCollection();
@@ -263,6 +303,102 @@ class Steps
     public function setCommentcomingsoon(?string $commentcomingsoon): self
     {
         $this->commentcomingsoon = $commentcomingsoon;
+
+        return $this;
+    }
+
+    public function getCommentcustomercontentreception(): ?string
+    {
+        return $this->commentcustomercontentreception;
+    }
+
+    public function setCommentcustomercontentreception(?string $commentcustomercontentreception): self
+    {
+        $this->commentcustomercontentreception = $commentcustomercontentreception;
+
+        return $this;
+    }
+
+    public function getCommentpicturesreception(): ?string
+    {
+        return $this->commentpicturesreception;
+    }
+
+    public function setCommentpicturesreception(?string $commentpicturesreception): self
+    {
+        $this->commentpicturesreception = $commentpicturesreception;
+
+        return $this;
+    }
+
+    public function getCommentwebdesignprogress(): ?string
+    {
+        return $this->commentwebdesignprogress;
+    }
+
+    public function setCommentwebdesignprogress(?string $commentwebdesignprogress): self
+    {
+        $this->commentwebdesignprogress = $commentwebdesignprogress;
+
+        return $this;
+    }
+
+    public function getCommentwebdesignwait(): ?string
+    {
+        return $this->commentwebdesignwait;
+    }
+
+    public function setCommentwebdesignwait(?string $commentwebdesignwait): self
+    {
+        $this->commentwebdesignwait = $commentwebdesignwait;
+
+        return $this;
+    }
+
+    public function getCommentwebdesignvalidated(): ?string
+    {
+        return $this->commentwebdesignvalidated;
+    }
+
+    public function setCommentwebdesignvalidated(?string $commentwebdesignvalidated): self
+    {
+        $this->commentwebdesignvalidated = $commentwebdesignvalidated;
+
+        return $this;
+    }
+
+    public function getCommentwebintegration(): ?string
+    {
+        return $this->commentwebintegration;
+    }
+
+    public function setCommentwebintegration(?string $commentwebintegration): self
+    {
+        $this->commentwebintegration = $commentwebintegration;
+
+        return $this;
+    }
+
+    public function getCommentwebtraining(): ?string
+    {
+        return $this->commentwebtraining;
+    }
+
+    public function setCommentwebtraining(?string $commentwebtraining): self
+    {
+        $this->commentwebtraining = $commentwebtraining;
+
+        return $this;
+    }
+
+    public function getCommentonline(): ?string
+    {
+        return $this->commentonline;
+    }
+
+    public function setCommentonline(?string $commentonline): self
+    {
+        $this->commentonline = $commentonline;
 
         return $this;
     }
