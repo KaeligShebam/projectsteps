@@ -90,6 +90,7 @@ class AddStepsType extends AbstractType
             'label_attr' => ['class' => 'label-custom'],
         ])
 <<<<<<< HEAD
+<<<<<<< HEAD
         ->add('commentcustomerbrief', TextareaType::class, [
             'label' => 'Brief Client - Commentaire(s)',
             'required' => false,
@@ -148,6 +149,8 @@ class AddStepsType extends AbstractType
             'mapped' => true
         ])
 =======
+=======
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
             ->add('commentcustomerbrief', TextareaType::class, [
                 'label' => 'Brief Client',
                 'required' => false,
@@ -205,6 +208,9 @@ class AddStepsType extends AbstractType
                 'widget' => 'single_text',
                 'mapped' => true
             ])
+<<<<<<< HEAD
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
+=======
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
         ->add('submit', SubmitType::class, [
             'label' => 'Enregistrer',

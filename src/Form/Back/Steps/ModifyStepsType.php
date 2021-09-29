@@ -18,7 +18,11 @@ class ModifyStepsType extends AbstractType
         $builder
             ->add('commentcustomerbrief', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Brief Client - Commentaire(s)',
+=======
+                'label' => 'Brief Client',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Brief Client',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -27,7 +31,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentcomingsoon', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Page de Maintenance - Commentaire(s)',
+=======
+                'label' => 'Page de Maintenance',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Page de Maintenance',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -36,7 +44,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentcustomercontentreception', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Contenu client - Commentaire(s)',
+=======
+                'label' => 'Contenu client',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Contenu client',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -45,7 +57,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentpicturesreception', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Photos - Commentaire(s)',
+=======
+                'label' => 'Photos',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Photos',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -54,7 +70,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentwebdesignprogress', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Maquette en cours - Commentaire(s)',
+=======
+                'label' => 'Maquette en cours',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Maquette en cours',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -63,7 +83,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentwebdesignwait', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Maquette en attente - Commentaire(s)',
+=======
+                'label' => 'Maquette en attente',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Maquette en attente',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -72,7 +96,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentwebdesignvalidated', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Maquette validée - Commentaire(s)',
+=======
+                'label' => 'Maquette validée',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Maquette validée',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -81,7 +109,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentwebintegration', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Intégration - Commentaire(s)',
+=======
+                'label' => 'Intégration',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Intégration',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -90,7 +122,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentwebtraining', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Formation - Commentaire(s)',
+=======
+                'label' => 'Formation',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Formation',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
@@ -99,7 +135,11 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('commentonline', TextareaType::class, [
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'label' => 'Mise en ligne - Commentaire(s)',
+=======
+                'label' => 'Mise en ligne (Commentaire)',
+>>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 =======
                 'label' => 'Mise en ligne (Commentaire)',
 >>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
