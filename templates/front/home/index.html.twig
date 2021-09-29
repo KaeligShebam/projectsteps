@@ -11,7 +11,7 @@
 </head>
 	<body>
 		<div class="mb-5">
-			<h1 class="text-center color-blue-dark-shebam mb-3">Étapes projets</h1>	
+			<h1 class="text-center color-blue-dark-shebam mb-3">Étapes projets clients</h1>	
 			<div class="mb-4"></div>	
 			<div class="row">
 				<div class="col padding-mobile">
@@ -21,17 +21,17 @@
 							<i class="fas fa-plus-circle"></i>
 						</a>
 					</div>
-					<table class="table table-light" id="tableOrderSteps" data-toggle="table" data-search="true">
+					<table class="table table-light">
 						<thead class="thead-light">
 							<tr>
-								<th scope="col">Nom du client</th>
-								<th scope="col">Brief client</th>
-								<th scope="col">Coming soon</th>
-								<th scope="col">Contenu client</th>
+								<th scope="col">Nom du<br> client</th>
+								<th scope="col">Brief<br> client</th>
+								<th scope="col">Coming<br> soon</th>
+								<th scope="col">Contenu<br> client</th>
 								<th scope="col">Photos</th>
-								<th scope="col">Maquette en cours</th>
-								<th scope="col">Maquette en attente</th>
-								<th scope="col">Maquette validée</th>
+								<th scope="col">Maquette<br> en cours</th>
+								<th scope="col">Maquette<br> en attente</th>
+								<th scope="col">Maquette<br> validée</th>
 								<th scope="col">Intégration</th>
 								<th scolpe="col">Formation</th>
 								<th scope="col">Mise en ligne</th>
@@ -50,17 +50,14 @@
 										{% else %}
 										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"><i class="fas fa-eye"></i>{% endif %}
 									</td>
-
-									{# Popup 2 #}
+									
 									<td>
 									<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} 	 data-comingsoon="{{step.id}}">
 										{% if step.commentcomingsoon is empty %}
 										{% else %}
 										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i>{% endif %}
 									</td>
-
-									
-									{# Popup 3 #}
+								
 									<td>
 										<input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}">
 										{% if step.commentcustomercontentreception is empty %}
@@ -69,7 +66,6 @@
 										{% endif %}
 									</td>
 
-									{# Popup 4 #}
 									<td>
 										<input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}">
 										{% if step.commentpicturesreception is empty %}
@@ -78,7 +74,6 @@
 										{% endif %}
 									</td>
 
-									{# Popup 5 #}
 									<td>
 										<input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}">
 										{% if step.commentwebdesignprogress is empty %}
@@ -87,7 +82,6 @@
 										{% endif %}
 									</td>
 
-									{# Popup 6 #}
 									<td>
 										<input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}">
 										{% if step.commentwebdesignwait is empty %}
@@ -133,7 +127,6 @@
 					{% else %}
 					<div class="text-center">					
 						<form class="form-signin text-center background-login was-validated bg-white-shebam was-validated align-middle" method="post">
-						{# <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> #}
 						{% if error %}
 							<div class="message-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div><br>
 						{% endif %}
@@ -152,29 +145,10 @@
 							</div>
 						</form>
 					</div>
-
 					{% endif %}
 				</div>
+				{% include 'popups.html.twig' %}
 		</div>
 	</body>
 </html>
-{% endblock %}
- {% block javascripts %}
-	{{ parent() }}
-	<script>
-		$(()=>{
-			$("#tableOrderSteps").on("reorder-row.bs.table", (e, table, row, old) => {
-				$.ajax({
-					url: "{{ path('home_reorder_row')}}",
-					method: "POST",
-					data: {
-						table: JSON.stringify(table),
-						context: 1
-					},
-					dataType: "JSON",
-					success: (response)=>{console.log(response)}
-				})
-			})
-		})
-	</script>
 {% endblock %}
