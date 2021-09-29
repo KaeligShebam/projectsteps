@@ -2,7 +2,7 @@
 
 namespace App\Controller\Front;
 
-use App\Form\ChangeCoordsType;
+use App\Form\Front\ChangeCoordsType;
 use App\Repository\TaskRepository;
 use App\Repository\TacheRepository;
 use Doctrine\ORM\EntityManagerInterface;

@@ -34,31 +34,82 @@
 					<tr class="form-switch">
 						<td>{{ step.customer }}</td>
 						<td>
-							<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}}>
+						<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}} 	 data-customerbrief="{{step.id}}">
 							{% if step.commentcustomerbrief is empty %}
 							{% else %}
 							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"><i class="fas fa-eye"></i>{% endif %}
 						</td>
 
-
+						{# Popup 2 #}
 						<td>
-							<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}}>
+						<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} 	 data-comingsoon="{{step.id}}">
 							{% if step.commentcomingsoon is empty %}
 							{% else %}
-							<a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i></a>
-							{% endif %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i>{% endif %}
 						</td>
 
 						
-						<td><input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}"></td>
-						<td><input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}"></td>
-						<td><input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}"></td>
-						<td><input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}"></td>
-						<td><input type="checkbox" class="webdesignvalidated form-check-input" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}"></td>
-						<td><input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}"></td>
-						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}"></td>
+						{# Popup 3 #}
+						<td>
+							<input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}">
+							{% if step.commentcustomercontentreception is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomercontentreception" data-bs-id="{{step.id}}" data-bs-commentcustomercontentreception="{{step.commentcustomercontentreception}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						{# Popup 4 #}
+						<td>
+							<input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}">
+							{% if step.commentpicturesreception is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentpicturesreception" data-bs-id="{{step.id}}" data-bs-commentpicturesreception="{{step.commentpicturesreception}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						{# Popup 5 #}
+						<td>
+							<input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}">
+							{% if step.commentwebdesignprogress is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignprogress" data-bs-id="{{step.id}}" data-bs-commentwebdesignprogress="{{step.commentwebdesignprogress}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						{# Popup 6 #}
+						<td>
+							<input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}">
+							{% if step.commentwebdesignwait is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignwait" data-bs-id="{{step.id}}" data-bs-commentwebdesignwait="{{step.commentwebdesignwait}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						<td>
+							<input type="checkbox" class="webdesignvalidated form-check-input" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}">
+							{% if step.commentwebdesignvalidated is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignvalidated" data-bs-id="{{step.id}}" data-bs-commentwebdesignvalidated="{{step.commentwebdesignvalidated}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						<td><input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}">
+							{% if step.commentwebintegration is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebintegration" data-bs-id="{{step.id}}" data-bs-commentwebintegration="{{step.commentwebintegration}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
+						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}">
+							{% if step.commentonline is empty %}
+							{% else %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-commentonline" data-bs-id="{{step.id}}" data-bs-commentonline="{{step.commentonline}}"><i class="fas fa-eye"></i></a>
+							{% endif %}
+						</td>
+
 						<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
 						<td>
+
 						<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
 						|
 						<a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>	
@@ -69,25 +120,118 @@
 		</table>
 		{# Popup #}
 		{# Comment customer brief #}
-		<div class="modal fade" id="popup-commentcustomerbrief" tabindex="-1" aria-labelledby="popup-commentcustombrief-base" aria-hidden="true">
+		<div class="modal fade" id="popup-commentcustomerbrief" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="popup-commentcustombrief-base"></h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="modal fade" id="popup-commentcomingsoon" aria-labelledby="popup-commentcomingsoon-base" aria-hidden="true">
+		{# Popup2 #}
+		<div class="modal fade" id="popup-commentcomingsoon" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="popup-commentcomingsoon-base"></h5>
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
 				</div>
-				<div class="modal-body">
+			</div>
+		</div>
+
+		{# Popup3 #}
+		<div class="modal fade" id="popup-commentcustomercontentreception" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup4 #}
+		<div class="modal fade" id="popup-commentpicturesreception" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup4 #}
+		<div class="modal fade" id="popup-commentwebdesignprogress" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup 5 #}
+		<div class="modal fade" id="popup-commentwebdesignwait" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup 6 #}
+		<div class="modal fade" id="popup-commentwebdesignvalidated" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup 7 #}
+		<div class="modal fade" id="popup-commentwebintegration" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Popup 8 #}
+		<div class="modal fade" id="popup-commentonline" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+					</div>
 				</div>
 			</div>
 		</div>

@@ -44,7 +44,7 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 .btn-submit-admin-shebam{background: var(--blue-dark-shebam);color: var(--color-white);border-radius: 5px;padding: 10px 15px;border: none; font-size: 1rem !important; font-weight: 400 !important;}
 
 /* Form */
-.form-back {width: 100%;max-width: 400px;}
+.form-success {width: 100%;max-width: 400px!important;}
 .form-back input::placeholder {color: var(--color-yellow-dark);}
 
 /* ---------------------------------------------------
@@ -92,3 +92,4 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 .popup .close {position: absolute;top: 46px;right: 30px;transition: all 200ms;font-size: 30px;font-weight: bold;text-decoration: none;color: var(--color-yellow-dark);}
 .popup .close:hover {color: var(--blue-dark-shebam);transition: 0.5s ease-in-out;}
 .popup .content {max-height: 30%;overflow: auto;}
+.invalid-feedback span{color: var(--color-red);}

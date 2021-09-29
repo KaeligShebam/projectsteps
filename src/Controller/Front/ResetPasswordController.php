@@ -3,10 +3,10 @@
 namespace App\Controller\Front;
 
 use App\Entity\User;
-use App\Form\ChangePasswordType;
+use App\Form\Front\ChangePasswordType;
 use Symfony\Component\Mime\Address;
-use App\Form\ChangePasswordFormType;
-use App\Form\ResetPasswordRequestFormType;
+use App\Form\Front\ChangePasswordFormType;
+use App\Form\Front\ResetPasswordRequestFormType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -162,9 +162,9 @@ class ResetPasswordController extends AbstractController
         }
 
         $email = (new TemplatedEmail())
-            ->from(new Address('nepasrepondre@cityaccess.kaeligberel.fr', 'Réinitialiser le mot de passe - To Do List'))
+            ->from(new Address('support@shebam.fr', 'Réinitialiser le mot de passe - Étapes Projets'))
             ->to($user->getEmail())
-            ->subject('Lien de réinitialisation du mot de passe - To Do List')
+            ->subject('Lien de réinitialisation du mot de passe - Étapes Projets')
             ->htmlTemplate('front/reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,

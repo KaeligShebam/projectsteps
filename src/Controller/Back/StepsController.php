@@ -26,12 +26,10 @@ class StepsController extends AbstractController
     /**
      * @Route("/admin/etapes-projets", name="steps_list_admin")
      */
-    public function index(StepsRepository $steps, UserRepository $user, CustomerRepository $customer): Response
+    public function index(StepsRepository $steps): Response
     {
         return $this->render('back/steps/list.html.twig', [
             'steps' => $steps->findAll(),
-            'user' => $user->findAll(),
-            'customer' => $customer->findAll()
         ]);
     }
     /**
@@ -87,11 +85,11 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/brief-client/{id}/", name="steps_customerbrief_checkbox_admin")
+     * @Route("/admin/etapes-projets/brief-client/{id}", name="steps_customerbrief_checkbox_admin")
      */
     public function stepsCustomerbrief(Steps $stepsCustomerbrief)
     {
-        $stepsCustomerbrief->setCustomerbrief(($stepsCustomerbrief->getCustomerbrief())?false:true);
+        $stepsCustomerbrief->setCustomerbrief(($stepsCustomerbrief->getCustomerbrief())? false : true);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($stepsCustomerbrief);

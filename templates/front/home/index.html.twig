@@ -11,85 +11,154 @@
 </head>
 	<body>
 		<div class="mb-5">
-			<h1 class="text-center color-blue-dark-shebam mb-3">Étapes projets</h1>
-			<hr>		
+			<h1 class="text-center color-blue-dark-shebam mb-3">Étapes projets</h1>	
+			<div class="mb-4"></div>	
 			<div class="row">
 				<div class="col padding-mobile">
-					<div class="text-center bg-yellow-shebam color-white-shebam p-3 font-weight-bold">Priorité 1</div>
-					<table id="tableOrderSteps" class="table mb-5" data-toggle="table"
-					{# {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%} #}
-					data-use-row-attr-func="true" data-reorderable-rows="true"
-					{# {% endif %} #}
-					>
-						<thead class="bg-grey-shebam color-white-shebam font-weight-bold">
+					{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
+					<div class="d-flex flex-row-reverse">
+						<a href="{{ path('steps_add_admin') }}" title="Ajouter un client" type="button" class="btn mb-3">
+							<i class="fas fa-plus-circle"></i>
+						</a>
+					</div>
+					<table class="table table-light" id="tableOrderSteps" data-toggle="table" data-search="true">
+						<thead class="thead-light">
 							<tr>
-								<th data-field="id" data-visible="false">ID</th>
-								<th data-field="customer" data-sortable="true" scope="col">Test</th>
-								<th data-field="subject" data-sortable="true" scope="col">Test</th>
-								<th data-field="person" data-sortable="true" scope="col">Test(s)</th>
-								{# {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%} #}
+								<th scope="col">Nom du client</th>
+								<th scope="col">Brief client</th>
+								<th scope="col">Coming soon</th>
+								<th scope="col">Contenu client</th>
+								<th scope="col">Photos</th>
+								<th scope="col">Maquette en cours</th>
+								<th scope="col">Maquette en attente</th>
+								<th scope="col">Maquette validée</th>
+								<th scope="col">Intégration</th>
+								<th scolpe="col">Formation</th>
+								<th scope="col">Mise en ligne</th>
+								{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
 									<th scope="col">Action</th>
-								{# {% endif %} #}
+								{% endif %}
 							</tr>
 						</thead>
 						<tbody>
-							{# {% for task in task %}
-								{% if task.archived == 0 %} #}
-									<tr class="bg-white-shebam">
-										<td>1</td>
-										<td><input type="checkbox"></td>
-										<td><input type="checkbox"></td>
-										<td><input type="checkbox"></td>
-									{# {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%} #}
-										<td>
-											<a href=""><i class="fas fa-cog"></i></a>
-											|
-											<a href="" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
-										</td>
-									{# {% endif %} #}
-									</tr>
-								{# {% endif %} #}
-							{# {% endfor %} #}
+							{% for step in steps %}
+								<tr class="form-switch">
+									<td>{{ step.customer }}</td>
+									<td>
+									<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}} 	 data-customerbrief="{{step.id}}">
+										{% if step.commentcustomerbrief is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"><i class="fas fa-eye"></i>{% endif %}
+									</td>
+
+									{# Popup 2 #}
+									<td>
+									<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} 	 data-comingsoon="{{step.id}}">
+										{% if step.commentcomingsoon is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i>{% endif %}
+									</td>
+
+									
+									{# Popup 3 #}
+									<td>
+										<input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}">
+										{% if step.commentcustomercontentreception is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomercontentreception" data-bs-id="{{step.id}}" data-bs-commentcustomercontentreception="{{step.commentcustomercontentreception}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									{# Popup 4 #}
+									<td>
+										<input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}">
+										{% if step.commentpicturesreception is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentpicturesreception" data-bs-id="{{step.id}}" data-bs-commentpicturesreception="{{step.commentpicturesreception}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									{# Popup 5 #}
+									<td>
+										<input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}">
+										{% if step.commentwebdesignprogress is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignprogress" data-bs-id="{{step.id}}" data-bs-commentwebdesignprogress="{{step.commentwebdesignprogress}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									{# Popup 6 #}
+									<td>
+										<input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}">
+										{% if step.commentwebdesignwait is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignwait" data-bs-id="{{step.id}}" data-bs-commentwebdesignwait="{{step.commentwebdesignwait}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									<td>
+										<input type="checkbox" class="webdesignvalidated form-check-input" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}">
+										{% if step.commentwebdesignvalidated is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignvalidated" data-bs-id="{{step.id}}" data-bs-commentwebdesignvalidated="{{step.commentwebdesignvalidated}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									<td><input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}">
+										{% if step.commentwebintegration is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebintegration" data-bs-id="{{step.id}}" data-bs-commentwebintegration="{{step.commentwebintegration}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}">
+										{% if step.commentonline is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentonline" data-bs-id="{{step.id}}" data-bs-commentonline="{{step.commentonline}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
+									</td>
+
+									<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
+									{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
+									<td>
+									<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
+									|
+									<a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
+									</td>
+									{% endif %}	
+								</tr>
+							{% endfor %}
 						</tbody>
 					</table>
-					{# {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%} #}
-						<div class="btn-add-task-home">
-							<p class="mt-3 text-center"><a class="btn-yellow-shebam" href="#ajouteruneetape">Ajouter une étape</a></p>
-						</div>
-						<div class="btn-add-task-home-mobile">
-							<p class="mt-3 text-center"><a class="btn-yellow-shebam" href="">Ajouter</a></p>
-						</div>
-					{# {% endif %} #}
-				</div>
-
-			<!-- POPUP -->
-			<!-- Steps -->
-			{# <div id="ajouteruneetape" class="overlay">
-				<div class="was-validated popup bg-white-light-shebam is-valid">
-					<h2 class="mb-4">Ajout d'une tâche P1</h2>
-					<a class="close" href=""><i class="fas fa-times"></i></a>
-						<div class="content">
-						{{ form_start(form_task_p1_add_front) }}
-								<div class="form-group">
-									{{ form_row(form_task_p1_add_front.customer) }}
-									{{ form_row(form_task_p1_add_front.object) }}
-									{{ form_row(form_task_p1_add_front.subobject1) }}
-									{{ form_row(form_task_p1_add_front.subobject2) }}
-									{{ form_row(form_task_p1_add_front.subobject3) }}
-									{{ form_row(form_task_p1_add_front.users) }}
-								</div>
-								<div class="form-group">
-									{{ form_row(form_task_p1_add_front.submit) }}
-								</div>
-						{{ form_end(form_task_p1_add_front) }}
+					{% else %}
+					<div class="text-center">					
+						<form class="form-signin text-center background-login was-validated bg-white-shebam was-validated align-middle" method="post">
+						{# <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> #}
+						{% if error %}
+							<div class="message-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div><br>
+						{% endif %}
+							<h1 class="h3 mb-3 font-weight-normal">Connectes toi</h1>
+							<div class="form-group mt-4">
+								<input class="input-group-lg mb-3 form-control" type="email" value="{{ last_username }}" name="email" placeholder="Email" required autofocus>
+							</div>
+								<input class="field is-invalid form-control input-sm" type="password" name="password" placeholder="Mot de passe" required>
+							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							<div class="form-group">
+								<input type="submit" name="submit" class="btn-md btn-blue-shebam mt-3" value="Connexion">
+							</div>
+							<div id="register-link" class="text-left mt-5">
+								<span> Aie c'est quoi déjà? - </span><a href="{{path('app_forgot_password_request')}}" class="text-info"> Mot de passe oublié</a>
+							<span> Pas encore inscrit? - </span><a href="{{path('register')}}" class="text-info"> Inscription</a>
+							</div>
+						</form>
 					</div>
-				</div>
-			</div> #}
 
+					{% endif %}
+				</div>
 		</div>
 	</body>
 </html>
-{%  endblock %}
+{% endblock %}
  {% block javascripts %}
 	{{ parent() }}
 	<script>

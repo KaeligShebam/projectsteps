@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class HomeController extends AbstractController
 {
@@ -22,9 +23,19 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request): Response
-    {
-        return $this->render('front/home/index.html.twig');
+    public function index(StepsRepository $steps, AuthenticationUtils $authenticationUtils): Response
+    { 
+
+            // get the login error if there is one
+            $error = $authenticationUtils->getLastAuthenticationError();
+            // last username entered by the user
+            $lastUsername = $authenticationUtils->getLastUsername();
+        
+        return $this->render('front/home/index.html.twig', [
+            'steps' => $steps->findAll(),
+            'last_username' => $lastUsername,
+            'error' => $error
+        ]);
     }
 
 
@@ -48,5 +59,13 @@ class HomeController extends AbstractController
         return new JsonResponse([
             'data' => gettype($request->request->get("context"))
         ]);
+    }
+
+    /**
+     * @Route("/deconnexion", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }
