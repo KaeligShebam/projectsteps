@@ -89,8 +89,6 @@ class AddStepsType extends AbstractType
             'mapped' => false,      
             'label_attr' => ['class' => 'label-custom'],
         ])
-<<<<<<< HEAD
-<<<<<<< HEAD
         ->add('commentcustomerbrief', TextareaType::class, [
             'label' => 'Brief Client - Commentaire(s)',
             'required' => false,
@@ -148,70 +146,6 @@ class AddStepsType extends AbstractType
             'widget' => 'single_text',
             'mapped' => true
         ])
-=======
-=======
->>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
-            ->add('commentcustomerbrief', TextareaType::class, [
-                'label' => 'Brief Client',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentcomingsoon', TextareaType::class, [
-                'label' => 'Page de Maintenance',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentcustomercontentreception', TextareaType::class, [
-                'label' => 'Contenu client',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentpicturesreception', TextareaType::class, [
-                'label' => 'Photos',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentwebdesignprogress', TextareaType::class, [
-                'label' => 'Maquette en cours',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentwebdesignwait', TextareaType::class, [
-                'label' => 'Maquette en attente',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentwebdesignvalidated', TextareaType::class, [
-                'label' => 'Maquette validée',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentwebintegration', TextareaType::class, [
-                'label' => 'Intégration',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentwebtraining', TextareaType::class, [
-                'label' => 'Formation',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('commentonline', TextareaType::class, [
-                'label' => 'Mise en ligne (Commentaire)',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-            ])
-            ->add('online', DateType::class, [
-                'label' => 'Mise en ligne',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-<<<<<<< HEAD
->>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
-=======
->>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
         ->add('submit', SubmitType::class, [
             'label' => 'Enregistrer',
             'attr' => ['class' => 'btn-submit-admin-shebam'],

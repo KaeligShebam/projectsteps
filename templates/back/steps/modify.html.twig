@@ -9,7 +9,6 @@
 	{% block admin_utilisateur %}
 
 		{{ form_start(form_steps_modify_admin) }}
-<<<<<<< HEAD
 		<div class="was-validated  background-login is-valid">
 		{% if notification %}
 			<div class="alert alert-success form-success text-center">{{ notification }}<br>
@@ -44,42 +43,6 @@
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_modify_admin.online) }}
 					</div>
-
-=======
-		<div class="was-validated form-back background-login is-valid">
-			{% if notification %}
-				<div class="alert alert-success">{{ notification }}<br>
-					<hr>
-					<a href="{{ path('steps_list_admin') }}">Retourner à la liste</a>
-				</div>
-			{% endif %}
-				<div class="form-group">
-					{{ form_row(form_steps_modify_admin.commentcustomerbrief) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentcomingsoon) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentcustomercontentreception) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentpicturesreception) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentwebdesignprogress) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentwebdesignwait) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentwebdesignvalidated) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentwebintegration) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentwebtraining) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.commentonline) }}
-					<div class="mb-3"></div>
-					{{ form_row(form_steps_modify_admin.online) }}
-					<div class="mb-3"></div>
-<<<<<<< HEAD
->>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
-=======
->>>>>>> 20495584d445fb65d8e0a0861d1b58d8776cd64d
 					{{ form_row(form_steps_modify_admin.submit) }}
 				</div>
 			</div>
