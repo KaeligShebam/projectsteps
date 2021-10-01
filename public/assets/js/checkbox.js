@@ -61,6 +61,15 @@ window.onload = () => {
         })
     }
 
+    let domainname = document.querySelectorAll(".domainname")
+    for (button of domainname) {
+        button.addEventListener("click", function () {
+            let xmhttp = new XMLHttpRequest;
+            xmhttp.open("get", `/admin/etapes-projets/nom-de-domaine/${this.dataset.domainname}`)
+            xmhttp.send()
+        })
+    }
+
     let webintegration = document.querySelectorAll(".webintegration")
     for (button of webintegration) {
         button.addEventListener("click", function () {

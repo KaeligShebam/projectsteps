@@ -7,7 +7,9 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -19,6 +21,12 @@ class ModifyStepsType extends AbstractType
             ->add('commentcustomerbrief', TextareaType::class, [
                 'label' => 'Brief Client - Commentaire(s)',
                 'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('commentdomainname', TextType::class, [
+                'label' => 'Nom de domaine - Commentaire(s)',
+                'required' => false,
+                'mapped' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])
             ->add('commentcomingsoon', TextareaType::class, [
@@ -68,6 +76,20 @@ class ModifyStepsType extends AbstractType
             ])
             ->add('online', DateType::class, [
                 'label' => 'Mise en ligne',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text',
+                'mapped' => true
+            ])
+            ->add('datecustomerbrief', DateType::class, [
+                'label' => 'Date du brief',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text',
+                'mapped' => true
+            ])
+            ->add('datecomingsoon', DateType::class, [
+                'label' => 'Date de la coming soon',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
                 'widget' => 'single_text',

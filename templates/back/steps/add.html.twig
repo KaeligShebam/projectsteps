@@ -16,6 +16,8 @@
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.customerbrief) }}
 						<div class="mb-3"></div>
+						{{ form_row(form_steps_add_admin.domainname) }}
+						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.comingsoon) }}
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.customercontentreception) }}
@@ -33,10 +35,15 @@
 						{{ form_row(form_steps_add_admin.webintegration) }}
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.online) }}
+						<div class="mb-3"></div>
+						{{ form_row(form_steps_add_admin.datecustomerbrief) }}
+						<div class="mb-3"></div>
+						{{ form_row(form_steps_add_admin.datecomingsoon) }}
 					</div>
 					<div class="col">
-						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.commentcustomerbrief) }}
+						<div class="mb-3"></div>
+						{{ form_row(form_steps_add_admin.commentdomainname) }}
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.commentcomingsoon) }}
 						<div class="mb-3"></div>
@@ -57,7 +64,9 @@
 						<div class="mb-3"></div>
 						{{ form_row(form_steps_add_admin.commentonline) }}
 					</div>
+					<div class="mt-3"></div>
 					{{ form_row(form_steps_add_admin.submit) }}
+					
 				</div>
 			</div>
 				{{ form_end(form_steps_add_admin) }}

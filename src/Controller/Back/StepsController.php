@@ -183,6 +183,20 @@ class StepsController extends AbstractController
     }
 
     /**
+     * @Route("/admin/etapes-projets/nom-de-domaine/{id}", name="steps_domainname_checkbox_admin")
+     */
+    public function stepsWDomainName(Steps $stepDomainname)
+    {
+        $stepDomainname->SetDomainname(($stepDomainname->getDomainname()) ? false : true);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($stepDomainname);
+        $em->flush();
+
+        return new Response("true");
+    }
+
+    /**
      * @Route("/admin/etapes-projets/integration/{id}", name="steps_integration_checkbox_admin")
      */
     public function stepsIntegration(Steps $stepWebintegration)

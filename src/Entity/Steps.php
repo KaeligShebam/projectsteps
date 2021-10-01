@@ -72,6 +72,11 @@ class Steps
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
+    private $domainname;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
     private $webintegration;
 
     /**
@@ -122,6 +127,11 @@ class Steps
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $commentdomainname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $commentwebintegration;
 
     /**
@@ -133,6 +143,16 @@ class Steps
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $commentonline;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datecustomerbrief;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datecomingsoon;
 
     public function __construct()
     {
@@ -248,6 +268,18 @@ class Steps
     public function setWebdesignvalidated(?bool $webdesignvalidated): self
     {
         $this->webdesignvalidated = $webdesignvalidated;
+
+        return $this;
+    }
+
+    public function getDomainname(): ?bool
+    {
+        return $this->domainname;
+    }
+
+    public function setDomainname(bool $domainname): self
+    {
+        $this->domainname = $domainname;
 
         return $this;
     }
@@ -372,6 +404,18 @@ class Steps
         return $this;
     }
 
+    public function getCommentdomainname(): ?string
+    {
+        return $this->commentdomainname;
+    }
+
+    public function setCommentdomainname(?string $commentdomainname): self
+    {
+        $this->commentdomainname = $commentdomainname;
+
+        return $this;
+    }
+
     public function getCommentwebintegration(): ?string
     {
         return $this->commentwebintegration;
@@ -404,6 +448,30 @@ class Steps
     public function setCommentonline(?string $commentonline): self
     {
         $this->commentonline = $commentonline;
+
+        return $this;
+    }
+
+    public function getDatecustomerbrief(): ?\DateTimeInterface
+    {
+        return $this->datecustomerbrief;
+    }
+
+    public function setDatecustomerbrief(?\DateTimeInterface $datecustomerbrief): self
+    {
+        $this->datecustomerbrief = $datecustomerbrief;
+
+        return $this;
+    }
+
+    public function getDatecomingsoon(): ?\DateTimeInterface
+    {
+        return $this->datecomingsoon;
+    }
+
+    public function setDatecomingsoon(?\DateTimeInterface $datecomingsoon): self
+    {
+        $this->datecomingsoon = $datecomingsoon;
 
         return $this;
     }

@@ -9,7 +9,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -29,13 +31,19 @@ class AddStepsType extends AbstractType
             'label_attr' => ['class' => 'label-custom'],
         ))
         ->add('customerbrief', CheckboxType::class, [
-            'label' => 'Brief Client',
+            'label' => 'Brief client',
+            'required' => false,
+            'mapped' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('domainname', CheckboxType::class, [
+            'label' => 'Nom de domaine',
             'required' => false,
             'mapped' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('comingsoon', CheckboxType::class, [
-            'label' => 'Comming Soon En Ligne',
+            'label' => 'Comming soon',
             'required' => false,
             'mapped' => false,
             'label_attr' => ['class' => 'label-custom'],
@@ -47,19 +55,19 @@ class AddStepsType extends AbstractType
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('picturesreception', CheckboxType::class, [
-            'label' => 'Reception Photos',
+            'label' => 'Reception photos',
             'required' => false,
             'mapped' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('webdesignprogress', CheckboxType::class, [
-            'label' => 'Maquette En Cours',
+            'label' => 'Maquette en cours',
             'required' => false,
             'mapped' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('webdesignwait', CheckboxType::class, [
-            'label' => 'Maquette En Attente De Validation',
+            'label' => 'Maquette envoyée',
             'required' => false,
             'mapped' => false,     
             'label_attr' => ['class' => 'label-custom'],
@@ -83,13 +91,18 @@ class AddStepsType extends AbstractType
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('webdesignvalidated', CheckboxType::class, [
-            'label' => 'Maquette Validée',
+            'label' => 'Maquette validée',
             'required' => false,
             'mapped' => false,      
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('commentcustomerbrief', TextareaType::class, [
             'label' => 'Brief Client - Commentaire(s)',
+            'required' => false,
+            'label_attr' => ['class' => 'label-custom'],
+        ])
+        ->add('commentdomainname', TextType::class, [
+            'label' => 'Nom de domaine - Commentaire(s)',
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
@@ -139,7 +152,21 @@ class AddStepsType extends AbstractType
             'label_attr' => ['class' => 'label-custom'],
         ])
         ->add('online', DateType::class, [
-            'label' => 'Mise en ligne (Commentaire(s))',
+            'label' => 'Mise en ligne',
+            'required' => false,
+            'label_attr' => ['class' => 'label-custom'],
+            'widget' => 'single_text',
+            'mapped' => true
+        ])
+        ->add('datecustomerbrief', DateType::class, [
+            'label' => 'Date du brief',
+            'required' => false,
+            'label_attr' => ['class' => 'label-custom'],
+            'widget' => 'single_text',
+            'mapped' => true
+        ])
+        ->add('datecomingsoon', DateType::class, [
+            'label' => 'Date de la coming soon',
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
             'widget' => 'single_text',

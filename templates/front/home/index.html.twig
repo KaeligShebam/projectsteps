@@ -26,11 +26,12 @@
 							<tr>
 								<th scope="col">Nom du<br> client</th>
 								<th scope="col">Brief<br> client</th>
+								<th scope="col">Nom de<br> domaine</th>
 								<th scope="col">Coming<br> soon</th>
 								<th scope="col">Contenu<br> client</th>
 								<th scope="col">Photos</th>
 								<th scope="col">Maquette<br> en cours</th>
-								<th scope="col">Maquette<br> en attente</th>
+								<th scope="col">Maquette<br> envoyée</th>
 								<th scope="col">Maquette<br> validée</th>
 								<th scope="col">Intégration</th>
 								<th scolpe="col">Formation</th>
@@ -45,17 +46,29 @@
 								<tr class="form-switch">
 									<td>{{ step.customer }}</td>
 									<td>
-									<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}} 	 data-customerbrief="{{step.id}}">
+									
+									<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}}  data-customerbrief="{{step.id}}">
 										{% if step.commentcustomerbrief is empty %}
 										{% else %}
-										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"><i class="fas fa-eye"></i>{% endif %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"
+										{% if step.datecustomerbrief is empty %}{% else %}data-bs-datecustomerbrief="{{step.datecustomerbrief|date("d-m-Y") }}" {% endif %}><i class="fas fa-eye"></i>{% endif %}
+									</td>
+
+									<td>
+										<input type="checkbox" class="domainname form-check-input" {{ (step.domainname) ? 'checked' : ''}} data-domainname="{{step.id}}">
+										{% if step.commentdomainname is empty %}
+										{% else %}
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentdomainname" data-bs-id="{{step.id}}" data-bs-commentdomainname="{{step.commentdomainname}}"><i class="fas fa-eye"></i></a>
+										{% endif %}
 									</td>
 									
 									<td>
 									<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} 	 data-comingsoon="{{step.id}}">
-										{% if step.commentcomingsoon is empty %}
-										{% else %}
-										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"><i class="fas fa-eye"></i>{% endif %}
+
+							
+										| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}"
+										{% if step.datecomingsoon is empty %}{% else %} data-bs-datecomingsoon="{{step.datecomingsoon|date("d-m-Y") }}" {% endif %}><i class="fas fa-eye"></i>
+								
 									</td>
 								
 									<td>
