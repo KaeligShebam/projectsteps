@@ -62,7 +62,7 @@ class Steps
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $webdesignwait;
+    private $webdesignsend;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -117,7 +117,7 @@ class Steps
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $commentwebdesignwait;
+    private $commentwebdesignsend;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -140,11 +140,6 @@ class Steps
     private $commentwebtraining;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $commentonline;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $datecustomerbrief;
@@ -152,8 +147,48 @@ class Steps
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
+    private $datedomainname;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $datecomingsoon;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datecustomercontentreception;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datepicturesreception;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datewebdesignprogress;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datewebdesignsend;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datewebdesignvalidated;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datewebintegration;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datewebtraining;
+    
     public function __construct()
     {
         $this->customers = new ArrayCollection();
@@ -248,14 +283,14 @@ class Steps
         return $this;
     }
 
-    public function getWebdesignwait(): ?bool
+    public function getWebdesignsend(): ?bool
     {
-        return $this->webdesignwait;
+        return $this->webdesignsend;
     }
 
-    public function setWebdesignwait(?bool $webdesignwait): self
+    public function setWebdesignsend(?bool $webdesignsend): self
     {
-        $this->webdesignwait = $webdesignwait;
+        $this->webdesignsend = $webdesignsend;
 
         return $this;
     }
@@ -380,14 +415,14 @@ class Steps
         return $this;
     }
 
-    public function getCommentwebdesignwait(): ?string
+    public function getCommentwebdesignsend(): ?string
     {
-        return $this->commentwebdesignwait;
+        return $this->commentwebdesignsend;
     }
 
-    public function setCommentwebdesignwait(?string $commentwebdesignwait): self
+    public function setCommentwebdesignsend(?string $commentwebdesignsend): self
     {
-        $this->commentwebdesignwait = $commentwebdesignwait;
+        $this->commentwebdesignsend = $commentwebdesignsend;
 
         return $this;
     }
@@ -439,19 +474,7 @@ class Steps
 
         return $this;
     }
-
-    public function getCommentonline(): ?string
-    {
-        return $this->commentonline;
-    }
-
-    public function setCommentonline(?string $commentonline): self
-    {
-        $this->commentonline = $commentonline;
-
-        return $this;
-    }
-
+    
     public function getDatecustomerbrief(): ?\DateTimeInterface
     {
         return $this->datecustomerbrief;
@@ -464,6 +487,18 @@ class Steps
         return $this;
     }
 
+    public function getDatedomainname(): ?\DateTimeInterface
+    {
+        return $this->datedomainname;
+    }
+
+    public function setDatedomainname(?\DateTimeInterface $datecomingsoon): self
+    {
+        $this->datecomingsoon = $datecomingsoon;
+
+        return $this;
+    }
+
     public function getDatecomingsoon(): ?\DateTimeInterface
     {
         return $this->datecomingsoon;
@@ -472,6 +507,90 @@ class Steps
     public function setDatecomingsoon(?\DateTimeInterface $datecomingsoon): self
     {
         $this->datecomingsoon = $datecomingsoon;
+
+        return $this;
+    }
+
+    public function getDatecustomercontentreception(): ?\DateTimeInterface
+    {
+        return $this->datecustomercontentreception;
+    }
+
+    public function setDatecustomercontentreception(?\DateTimeInterface $datecustomercontentreception): self
+    {
+        $this->datecustomercontentreception = $datecustomercontentreception;
+
+        return $this;
+    }
+
+    public function getDatepicturesreception(): ?\DateTimeInterface
+    {
+        return $this->datepicturesreception;
+    }
+
+    public function setDatepicturesreception(?\DateTimeInterface $datepicturesreception): self
+    {
+        $this->datepicturesreception = $datepicturesreception;
+
+        return $this;
+    }
+
+    public function getDatewebdesignprogress(): ?\DateTimeInterface
+    {
+        return $this->datewebdesignprogress;
+    }
+
+    public function setDatewebdesignprogress(?\DateTimeInterface $datewebdesignprogress): self
+    {
+        $this->datewebdesignprogress = $datewebdesignprogress;
+
+        return $this;
+    }
+
+    public function getDatewebdesignsend(): ?\DateTimeInterface
+    {
+        return $this->datewebdesignsend;
+    }
+
+    public function setDatewebdesignsend(?\DateTimeInterface $datewebdesignsend): self
+    {
+        $this->datewebdesignsend = $datewebdesignsend;
+
+        return $this;
+    }
+
+    public function getDatewebdesignvalidated(): ?\DateTimeInterface
+    {
+        return $this->datewebdesignvalidated;
+    }
+
+    public function setDatewebdesignvalidated(?\DateTimeInterface $datewebdesignvalidated): self
+    {
+        $this->datewebdesignvalidated = $datewebdesignvalidated;
+
+        return $this;
+    }
+
+    public function getDatewebintegration(): ?\DateTimeInterface
+    {
+        return $this->datewebintegration;
+    }
+
+    public function setDatewebintegration(?\DateTimeInterface $datewebintegration): self
+    {
+        $this->datewebintegration = $datewebintegration;
+
+        return $this;
+    }
+
+    public function getDatewebtraining(): ?\DateTimeInterface
+    {
+        return $this->datewebtraining;
+    }
+
+    public function setDatewebtraining(?\DateTimeInterface $datewebtraining): self
+    {
+        $this->datewebtraining = $datewebtraining;
 
         return $this;
     }

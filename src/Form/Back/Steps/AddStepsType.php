@@ -126,8 +126,8 @@ class AddStepsType extends AbstractType
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
-        ->add('commentwebdesignwait', TextareaType::class, [
-            'label' => 'Maquette en attente - Commentaire(s)',
+        ->add('commentwebdesignsend', TextareaType::class, [
+            'label' => 'Maquette envoyée - Commentaire(s)',
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
@@ -146,11 +146,6 @@ class AddStepsType extends AbstractType
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
         ])
-        ->add('commentonline', TextareaType::class, [
-            'label' => 'Mise en ligne - Commentaire(s)',
-            'required' => false,
-            'label_attr' => ['class' => 'label-custom'],
-        ])
         ->add('online', DateType::class, [
             'label' => 'Mise en ligne',
             'required' => false,
@@ -160,13 +155,6 @@ class AddStepsType extends AbstractType
         ])
         ->add('datecustomerbrief', DateType::class, [
             'label' => 'Date du brief',
-            'required' => false,
-            'label_attr' => ['class' => 'label-custom'],
-            'widget' => 'single_text',
-            'mapped' => true
-        ])
-        ->add('datecomingsoon', DateType::class, [
-            'label' => 'Date de la coming soon',
             'required' => false,
             'label_attr' => ['class' => 'label-custom'],
             'widget' => 'single_text',

@@ -35,89 +35,104 @@
 					<tr class="form-switch">
 						<td>{{ step.customer }}</td>
 						<td>
-						<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}} data-customerbrief="{{step.id}}">
-							{% if step.commentcustomerbrief is empty %}
+							<input type="checkbox" class="customerbrief form-check-input" {{ (step.customerbrief) ? 'checked' : ''}} data-customerbrief="{{step.id}}">
+							{% if (step.commentcustomerbrief) or (step.datecustomerbrief) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-customerbrief" data-bs-id="{{step.id}}"
+								data-bs-commentcustomerbrief="{% if step.commentcustomerbrief is empty %}{% else %}{{step.commentcustomerbrief}}{% endif %}"
+								data-bs-datecustomerbrief="{% if step.datecustomerbrief is empty %}{% else %}{{step.datecustomerbrief|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomerbrief" data-bs-id="{{step.id}}" data-bs-commentcustomerbrief="{{step.commentcustomerbrief}}"
-							{% if step.datecustomerbrief is empty %}{% else %}data-bs-datecustomerbrief="{{step.datecustomerbrief|date("d-m-Y") }}" {% endif %}><i class="fas fa-eye"></i>{% endif %}
+							{% endif %}
 						</td>
-
 						<td>
 							<input type="checkbox" class="domainname form-check-input" {{ (step.domainname) ? 'checked' : ''}} data-domainname="{{step.id}}">
-							{% if step.commentdomainname is empty %}
+							{% if (step.commentdomainname) or (step.datedomainname) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-domainname" data-bs-id="{{step.id}}"
+								data-bs-commentdomainname="{% if step.commentdomainname is empty %}{% else %}{{step.commentdomainname}}{% endif %}"
+								data-bs-datedomainname="{% if step.datedomainname is empty %}{% else %}{{step.datedomainname|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentdomainname" data-bs-id="{{step.id}}" data-bs-commentdomainname="{{step.commentdomainname}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						{# Popup 2 #}
 						<td>
-						<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} 	 data-comingsoon="{{step.id}}">
-							{% if step.commentcomingsoon is empty %}
+							<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} data-comingsoon="{{step.id}}">
+							{% if (step.commentcomingsoon) or (step.datecomingsoon) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-comingsoon" data-bs-id="{{step.id}}"
+								data-bs-commentcomingsoon="{% if step.commentcomingsoon is empty %}{% else %}{{step.commentcomingsoon}}{% endif %}"
+								data-bs-datecomingsoon="{% if step.datecomingsoon is empty %}{% else %}{{step.datecomingsoon|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcomingsoon" data-bs-id="{{step.id}}" data-bs-commentcomingsoon="{{step.commentcomingsoon}}
-							"><i class="fas fa-eye"></i>
 							{% endif %}
 						</td>
 
-						
-						{# Popup 3 #}
 						<td>
 							<input type="checkbox" class="customercontentreception form-check-input" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}">
-							{% if step.commentcustomercontentreception is empty %}
+							{% if (step.commentcustomercontentreception) or (step.datecustomercontentreception) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-customercontentreception" data-bs-id="{{step.id}}"
+								data-bs-commentcustomercontentreception="{% if step.commentcustomercontentreception is empty %}{% else %}{{step.commentcustomercontentreception}}{% endif %}"
+								data-bs-datecustomercontentreception="{% if step.datecustomercontentreception is empty %}{% else %}{{step.datecustomercontentreception|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentcustomercontentreception" data-bs-id="{{step.id}}" data-bs-commentcustomercontentreception="{{step.commentcustomercontentreception}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						{# Popup 4 #}
 						<td>
 							<input type="checkbox" class="picturesreception form-check-input" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}">
-							{% if step.commentpicturesreception is empty %}
+							{% if (step.commentpicturesreception) or (step.datepicturesreception) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-picturesreception" data-bs-id="{{step.id}}"
+								data-bs-commentpicturesreception="{% if step.commentpicturesreception is empty %}{% else %}{{step.commentpicturesreception}}{% endif %}"
+								data-bs-datepicturesreception="{% if step.datepicturesreception is empty %}{% else %}{{step.datepicturesreception|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentpicturesreception" data-bs-id="{{step.id}}" data-bs-commentpicturesreception="{{step.commentpicturesreception}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						{# Popup 5 #}
 						<td>
 							<input type="checkbox" class="webdesignprogress form-check-input" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}">
-							{% if step.commentwebdesignprogress is empty %}
+							{% if (step.commentwebdesignprogress) or (step.datewebdesignprogress) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-webdesignprogress" data-bs-id="{{step.id}}"
+								data-bs-commentwebdesignprogress="{% if step.commentwebdesignprogress is empty %}{% else %}{{step.commentwebdesignprogress}}{% endif %}"
+								data-bs-datewebdesignprogress="{% if step.datewebdesignprogress is empty %}{% else %}{{step.datewebdesignprogress|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignprogress" data-bs-id="{{step.id}}" data-bs-commentwebdesignprogress="{{step.commentwebdesignprogress}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						{# Popup 6 #}
 						<td>
-							<input type="checkbox" class="webdesignwait form-check-input" {{ (step.webdesignwait) ? 'checked' : ''}} data-webdesignwait="{{step.id}}">
-							{% if step.commentwebdesignwait is empty %}
+							<input type="checkbox" class="webdesignsend form-check-input" {{ (step.webdesignsend) ? 'checked' : ''}} data-webdesignsend="{{step.id}}">
+							{% if (step.commentwebdesignsend) or (step.datewebdesignsend) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-webdesignsend" data-bs-id="{{step.id}}"
+								data-bs-commentwebdesignsend="{% if step.commentwebdesignsend is empty %}{% else %}{{step.commentwebdesignsend}}{% endif %}"
+								data-bs-datewebdesignsend="{% if step.datewebdesignsend is empty %}{% else %}{{step.datewebdesignsend|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignwait" data-bs-id="{{step.id}}" data-bs-commentwebdesignwait="{{step.commentwebdesignwait}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
 						<td>
 							<input type="checkbox" class="webdesignvalidated form-check-input" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}">
-							{% if step.commentwebdesignvalidated is empty %}
+							{% if (step.commentwebdesignvalidated) or (step.datewebdesignvalidated) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-webdesignvalidated" data-bs-id="{{step.id}}"
+								data-bs-commentwebdesignvalidated="{% if step.commentwebdesignvalidated is empty %}{% else %}{{step.commentwebdesignvalidated}}{% endif %}"
+								data-bs-datewebdesignvalidated="{% if step.datewebdesignvalidated is empty %}{% else %}{{step.datewebdesignvalidated|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebdesignvalidated" data-bs-id="{{step.id}}" data-bs-commentwebdesignvalidated="{{step.commentwebdesignvalidated}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						<td><input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}">
-							{% if step.commentwebintegration is empty %}
+						<td>
+							<input type="checkbox" class="webintegration form-check-input" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}">
+							{% if (step.commentwebintegration) or (step.datewebintegration) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-webintegration" data-bs-id="{{step.id}}"
+								data-bs-commentwebintegration="{% if step.commentwebintegration is empty %}{% else %}{{step.commentwebintegration}}{% endif %}"
+								data-bs-datewebintegration="{% if step.datewebintegration is empty %}{% else %}{{step.datewebintegration|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
 							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentwebintegration" data-bs-id="{{step.id}}" data-bs-commentwebintegration="{{step.commentwebintegration}}"><i class="fas fa-eye"></i></a>
 							{% endif %}
 						</td>
 
-						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}">
-							{% if step.commentonline is empty %}
-							{% else %}
-							| <a data-bs-toggle="modal" data-bs-target="#popup-commentonline" data-bs-id="{{step.id}}" data-bs-commentonline="{{step.commentonline}}"><i class="fas fa-eye"></i></a>
-							{% endif %}
-						</td>
+						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}"></td>
 
 						<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
 						<td>
