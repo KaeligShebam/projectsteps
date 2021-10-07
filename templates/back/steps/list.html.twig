@@ -12,12 +12,12 @@
 				<i class="fas fa-plus-circle"></i>
 			</a>
 		</div>
-		<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
-			<thead class="thead-light">
-				<tr>
+		<table class="table table-light" id="infoTable" data-toggle="table" data-pagination="true" data-search="true"   data-checkbox-header="false">
+			<thead>
+				<tr class="clickableRow">
 					<th scope="col">Nom du client</th>
 					<th scope="col">Brief client</th>
-					<th scope="col">Nom de<br> domaine</th>
+					<th scope="col">Nom de domaine</th>
 					<th scope="col">Coming soon</th>
 					<th scope="col">Contenu client</th>
 					<th scope="col">Photos</th>
@@ -55,7 +55,7 @@
 							{% endif %}
 						</td>
 
-						<td>
+						<td class="align-middle">
 							<input type="checkbox" class="comingsoon form-check-input" {{ (step.comingsoon) ? 'checked' : ''}} data-comingsoon="{{step.id}}">
 							{% if (step.commentcomingsoon) or (step.datecomingsoon) %}
 							| <a data-bs-toggle="modal" data-bs-target="#popup-comingsoon" data-bs-id="{{step.id}}"

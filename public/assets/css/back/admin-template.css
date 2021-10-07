@@ -10,6 +10,8 @@ a.article, a.article:hover {color: #fff !important;} */
 ul ul a {font-size: 0.9em !important;padding-left: 30px !important;}
 ul.CTAs {padding: 20px;}
 ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-radius: 5px;margin-bottom: 5px;}
+.form-switch .form-check-input{margin-left: 0 !important;}
+.col-auto{margin-top: 9px !important;}
 
 /* Custom */
 
@@ -42,6 +44,7 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 
 /* Button Styles */
 .btn-submit-admin-shebam{background: var(--blue-dark-shebam);color: var(--color-white);border-radius: 5px;padding: 10px 15px;border: none; font-size: 1rem !important; font-weight: 400 !important;}
+.btn-submit-admin-shebam:hover{background: var(--color-white);color: var(--blue-dark-shebam);}
 
 /* Form */
 .form-success {width: 100%;max-width: 400px!important;}
@@ -84,7 +87,6 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 .changelog p:first-child{text-align: center;color:#000000 ; font-weight: 400;font-size: 20px;text-decoration: underline;}
 .pointer-event{pointer-events: none;}
 
-/* Popup Task */
 .box {width: 40%;margin: 70px auto;background: rgba(255,255,255,0.2);padding: 35px;border: 2px solid #fff;border-radius: 20px/50px;background-clip: padding-box;text-align: center;} 
 .button {font-size: 1em;padding: 10px;color: #fff;border: 2px solid #06D85F;border-radius: 20px/50px;text-decoration: none;cursor: pointer;transition: all 0.3s ease-out;}.overlay {position: fixed;top: -40px;bottom: 0;left: 0;right: 0;background: rgba(0, 0, 0, 0.7);transition: opacity 500ms;visibility: hidden;opacity: 0;padding-bottom: 15px;}.overlay:target {visibility: visible;opacity: 1;}
 .popup {margin: auto;padding: 40px;border-radius: 5px;width: 30%;position: relative;top:20%;}

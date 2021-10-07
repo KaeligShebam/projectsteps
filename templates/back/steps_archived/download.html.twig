@@ -1,0 +1,111 @@
+{% extends 'back/steps_archived/base-pdf.html.twig' %}
+
+{% block body %}
+    <h3 class="text-center mb-3" style="color: caa904;"> Liste archivée téléchargée le {{ "now"|date("d/m/Y") }}</h3><br>
+    <div class="mb-5"></div>
+		<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Nom du client</th>
+					<th scope="col">Brief client</th>
+					<th scope="col">Nom de domaine</th>
+					<th scope="col">Coming soon</th>
+					<th scope="col">Contenu client</th>
+					<th scope="col">Photos</th>
+					<th scope="col">Maquette en cours</th>
+					<th scope="col">Maquette envoyée</th>
+					<th scope="col">Maquette validée</th>
+					<th scope="col">Intégration</th>
+					<th scolpe="col">Formation</th>
+					<th scope="col">Mise en ligne</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for step in steps %}
+					<tr>
+						<td>{{ step.customer }}</td>
+						<td>
+							<input type="checkbox" class="customerbrief" {{ (step.customerbrief) ? 'checked' : ''}} data-customerbrief="{{step.id}}">
+						</td>
+						<td>
+							<input type="checkbox" class="domainname" {{ (step.domainname) ? 'checked' : ''}} data-domainname="{{step.id}}">
+						</td>
+
+						<td class="align-middle">
+							<input type="checkbox" class="comingsoon" {{ (step.comingsoon) ? 'checked' : ''}} data-comingsoon="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="customercontentreception" {{ (step.customercontentreception) ? 'checked' : ''}} data-customercontentreception="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="picturesreception" {{ (step.picturesreception) ? 'checked' : ''}} data-picturesreception="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="webdesignprogress" {{ (step.webdesignprogress) ? 'checked' : ''}} data-webdesignprogress="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="webdesignsend" {{ (step.webdesignsend) ? 'checked' : ''}} data-webdesignsend="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="webdesignvalidated" {{ (step.webdesignvalidated) ? 'checked' : ''}} data-webdesignvalidated="{{step.id}}">
+						</td>
+
+						<td>
+							<input type="checkbox" class="webintegration" {{ (step.webintegration) ? 'checked' : ''}} data-webintegration="{{step.id}}">
+							{% if (step.commentwebintegration) or (step.datewebintegration) %}
+							| <a data-bs-toggle="modal" data-bs-target="#popup-webintegration" data-bs-id="{{step.id}}"
+								data-bs-commentwebintegration="{% if step.commentwebintegration is empty %}{% else %}{{step.commentwebintegration}}{% endif %}"
+								data-bs-datewebintegration="{% if step.datewebintegration is empty %}{% else %}{{step.datewebintegration|date("d-m-Y") }}{% endif %}">
+							<i class="fas fa-eye"></i></a>
+							{% else %}
+							{% endif %}
+						</td>
+
+						<td><input type="checkbox" class="webtraining form-check-input" {{ (step.webtraining) ? 'checked' : ''}} data-webtraining="{{step.id}}"></td>
+
+						<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% for steps in steps %}
+		<table class="table table-hover table-striped">
+		<br>
+			<tr>
+				<td>
+					<h4>Commentaires</h4>
+					<p>Client: <span style="color: #caa904">{{ steps.customer }}</span></p>
+					<p>Brief client: {% if steps.commentcustomerbrief is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentcustomerbrief }}</span>{% endif %}</p>
+					<p>Coming Soon: {% if steps.commentcomingsoon is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentcomingsoon }}</span>{% endif %}</p>
+					<p>Reception du contenu: {% if steps.commentcustomercontentreception is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentcustomercontentreception }}</span>{% endif %}</p>
+					<p>Reception des photos: {% if steps.commentpicturesreception is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentpicturesreception }}</span>{% endif %}</p>
+					<p>Maquette en cours: {% if steps.commentwebdesignprogress is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentwebdesignprogress }}</span>{% endif %}</p>
+					<p>Maquette envoyée: {% if steps.commentwebdesignsend is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentwebdesignsend }}</span>{% endif %}</p>
+					<p>Maquette validée: {% if steps.commentwebdesignvalidated is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentwebdesignvalidated }}</span>{% endif %}</p>
+					<p>Intégration: {% if steps.commentwebintegration is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentwebintegration }}</span>{% endif %}</p>
+					<p>Formation: {% if steps.commentwebtraining is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.commentwebtraining }}</span>{% endif %}</p>
+					<p>Nom de domaine: {% if steps.domainname is empty %}<span style="color: #caa904">Aucun commentaire</span>{% else %}<span style="color: #caa904">{{ steps.domainname }}</span>{% endif %}</p>
+				</td>
+				<td>
+					<h4>Dates</h4>
+					<p>Brief client: {% if steps.datecustomerbrief is empty %}<span style="color: #caa904">Aucune date</span>{% else %}<span style="color: #caa904">{{ steps.datecustomerbrief|date("d-m-Y") }}</span>{% endif %}</p>	
+					<p>Nom du domaine: {% if steps.datedomainname is empty %}<span style="color: #caa904">Aucune date</span>{% else %}<span style="color: #caa904">{{ steps.datedomainname }}</span>{% endif %}</p>
+					<p>Coming Soon: {% if steps.datecomingsoon is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datecomingsoon }}</span>{% endif %}</p>
+					<p>Reception du contenu: {% if steps.datecustomercontentreception is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datecustomercontentreception }}</span>{% endif %}</p>
+					<p>Reception des photos: {% if steps.datepicturesreception is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datepicturesreception }}</span>{% endif %}</p>
+					<p>Maquette en cours: {% if steps.datewebdesignprogress is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datewebdesignprogress }}</span>{% endif %}</p>
+					<p>Maquette envoyée: {% if steps.datewebdesignsend is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datewebdesignsend }}</span>{% endif %}</p>
+					<p>Maquette validée: {% if steps.datewebdesignvalidated is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datewebdesignvalidated }}</span>{% endif %}</p>
+					<p>Intégration: {% if steps.datewebintegration is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datewebintegration }}</span>{% endif %}</p>
+					<p>Formation: {% if steps.datewebtraining is empty %}<span style="color: #caa904">Aucune date</span>{% else %}{{ steps.datewebtraining }}</span>{% endif %}</p>
+				</td>
+			</tr>
+		</table><br>
+		{% endfor %}
+		</div>
+{% endblock %}

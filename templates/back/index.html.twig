@@ -13,11 +13,10 @@
 
 		<!-- Bootstrap CSS CDN -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
 
 		<!-- Font Awesome JS -->
-		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.0/css/all.min.css" integrity="sha512-UJqci0ZyYcQ0AOJkcIkUCxLS2L6eNcOr7ZiypuInvEhO9uqIDi349MEFrqBzoy1QlfcjfURHl+WTMjEdWcv67A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/css/back/admin-template.css') }}">
@@ -61,8 +60,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="{{ path('steps_list_admin') }}"><span class="logo-text">Étapes projets</span></a>
-	
+		            <a class="app-logo" href="{{ path('steps_list_admin') }}"><span class="logo-text">Suivi projets</span></a>
 		        </div>
 		        
 			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
@@ -90,7 +88,15 @@
 						         </span>
 		                         <span class="nav-link-text">Équipe</span>
 					        </a>
-					    </li>    
+					    </li>
+					    <li class="nav-item">
+					        <a class="nav-link" href="{{ path('download_list_admin') }}">
+						        <span class="nav-icon">
+									<i class="fas fa-download"></i>
+						         </span>
+		                         <span class="nav-link-text">Téléchargement</span>
+					        </a>
+					    </li> 
 				    </ul>
 			    </nav>
 			    <div class="app-sidepanel-footer">
@@ -111,17 +117,16 @@
     
     <div class="app-wrapper">
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
-			    <h1 class="app-page-title">
-					{% block titre_admin_page %}<h4 class="color-blue-dark-shebam">
-						{% block title_titre_admin_page_base %}<a href="{{ path('steps_list_admin') }} " title="Retourner sur la liste des tâches">Administration</a> <i class="fas fa-arrow-right"></i>
-						{% endblock %}Tableau de Bord / {{app.user.firstname}} {{app.user.lastname}}</h4>
-					{% endblock %}
-				</h1>
+			<h1 class="app-page-title">
+				{% block titre_admin_page %}<h4 class="color-blue-dark-shebam">
+					{% block title_titre_admin_page_base %}<a href="{{ path('steps_list_admin') }} " title="Retourner sur la liste des tâches">Administration</a> <i class="fas fa-arrow-right"></i>
+					{% endblock %}Tableau de Bord / {{app.user.firstname}} {{app.user.lastname}}</h4>
+				{% endblock %}
+			</h1>
 			    
 			{% block admin_utilisateur %}
 			{% endblock %}		    
-		    </div>
-
+		</div>
     </div>   					
 
  
@@ -136,5 +141,6 @@
 		<script src="{{ asset('assets/js/comment-popup.js') }}"></script>
 		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
 	</body>
 </html>

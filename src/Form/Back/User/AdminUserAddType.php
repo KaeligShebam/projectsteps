@@ -3,7 +3,7 @@
 namespace App\Form\Back\User;
 
 use App\Entity\User;
-use App\Form\ShowHidePasswordType;
+use App\Form\Front\ShowHidePasswordType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -65,6 +65,7 @@ class AdminUserAddType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Confirmation du mot de passe',
+                        'class' => 'mb-3'
                     ]
                     ],
             ])
