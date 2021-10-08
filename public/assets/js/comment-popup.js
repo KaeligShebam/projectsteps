@@ -4,7 +4,7 @@ customerbriefpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentcustomerbrief = button.getAttribute('data-bs-commentcustomerbrief')
+    var commentcustomerbrief = "Commentaire: " + button.getAttribute('data-bs-commentcustomerbrief')
     var commentcustomerbriefempty = "Aucun Commentaire"
     var datecustomerbrief = "Date du brief: " + button.getAttribute('data-bs-datecustomerbrief')
     var datecustomerbriefempty = "Date du brief inconnue"
@@ -34,7 +34,7 @@ domainnamepopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentdomainname = button.getAttribute('data-bs-commentdomainname')
+    var commentdomainname = "Commentaire: " + button.getAttribute('data-bs-commentdomainname')
     var commentdomainnameempty = "Aucun Commentaire"
     var datedomainname = "Date d'achat: " + button.getAttribute('data-bs-datedomainname')
     var datedomainnameempty = "Date d'achat inconnue"
@@ -64,7 +64,7 @@ comingsoonpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentcomingsoon = button.getAttribute('data-bs-commentcomingsoon')
+    var commentcomingsoon = "Commentaire: " + button.getAttribute('data-bs-commentcomingsoon')
     var commentcomingsoonempty = "Aucun Commentaire"
     var datecomingsoon = "Date de la mise en ligne: " + button.getAttribute('data-bs-datecomingsoon')
     var datecomingsoonempty = "Date de la mise en ligne inconnue"
@@ -94,7 +94,7 @@ customercontentreceptionpopup.addEventListener('show.bs.modal', function (event)
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentcustomercontentreception = button.getAttribute('data-bs-commentcustomercontentreception')
+    var commentcustomercontentreception = "Commentaire: " + button.getAttribute('data-bs-commentcustomercontentreception')
     var commentcustomercontentreceptionempty = "Aucun Commentaire"
     var datecustomercontentreception = "Date de reception: " + button.getAttribute('data-bs-datecustomercontentreception')
     var datecustomercontentreceptionempty = "Date de reception inconnue"
@@ -125,7 +125,7 @@ picturesreceptionpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentpicturesreception = button.getAttribute('data-bs-commentpicturesreception')
+    var commentpicturesreception = "Commentaire: " + button.getAttribute('data-bs-commentpicturesreception')
     var commentpicturesreceptionempty = "Aucun Commentaire"
     var datepicturesreception = "Date de reception: " + button.getAttribute('data-bs-datepicturesreception')
     var datepicturesreceptionempty = "Date de reception inconnue"
@@ -154,7 +154,7 @@ webdesignprogresspopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentwebdesignprogress = button.getAttribute('data-bs-commentwebdesignprogress')
+    var commentwebdesignprogress = "Commentaire: " + button.getAttribute('data-bs-commentwebdesignprogress')
     var commentwebdesignprogressempty = "Aucun Commentaire"
     var datewebdesignprogress = "Date de début: " + button.getAttribute('data-bs-datewebdesignprogress')
     var datewebdesignprogressempty = "Date de début inconnue"
@@ -183,7 +183,7 @@ webdesignsendpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentwebdesignsend = button.getAttribute('data-bs-commentwebdesignsend')
+    var commentwebdesignsend = "Commentaire: " + button.getAttribute('data-bs-commentwebdesignsend')
     var commentwebdesignsendempty = "Aucun Commentaire"
     var datewebdesignsend = "Date d'envoie: " + button.getAttribute('data-bs-datewebdesignsend')
     var datewebdesignsendempty = "Date d'envoie inconnue"
@@ -212,7 +212,7 @@ webdesignvalidatedpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentwebdesignvalidated = button.getAttribute('data-bs-commentwebdesignvalidated')
+    var commentwebdesignvalidated = "Commentaire: " + button.getAttribute('data-bs-commentwebdesignvalidated')
     var commentwebdesignvalidatedempty = "Aucun Commentaire"
     var datewebdesignvalidated = "Date de validation: " + button.getAttribute('data-bs-datewebdesignvalidated')
     var datewebdesignvalidatedempty = "Date de validation inconnue"
@@ -241,7 +241,7 @@ webintegrationpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentwebintegration = button.getAttribute('data-bs-commentwebintegration')
+    var commentwebintegration = "Commentaire: " + button.getAttribute('data-bs-commentwebintegration')
     var commentwebintegrationempty = "Aucun Commentaire"
     var datewebintegration = "Date prévue: " + button.getAttribute('data-bs-datewebintegration')
     var datewebintegrationempty = "Date prévue inconnue"
@@ -270,7 +270,7 @@ webtrainingpopup.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var recipient = button.getAttribute('data-bs-id')
 
-    var commentwebtraining = button.getAttribute('data-bs-commentwebtraining')
+    var commentwebtraining = "Commentaire: " + button.getAttribute('data-bs-commentwebtraining')
     var commentwebtrainingempty = "Aucun Commentaire"
     var datewebtraining = "Date prévue: " + button.getAttribute('data-bs-datewebtraining')
     var datewebtrainingempty = "Date prévue inconnue"
