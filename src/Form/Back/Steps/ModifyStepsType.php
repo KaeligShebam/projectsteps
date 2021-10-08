@@ -19,132 +19,120 @@ class ModifyStepsType extends AbstractType
     {
         $builder
             ->add('commentcustomerbrief', TextareaType::class, [
-                'label' => 'Brief Client - Commentaire(s)',
+                'label' => 'Brief Client',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])
-            ->add('commentdomainname', TextType::class, [
-                'label' => 'Nom de domaine - Commentaire(s)',
+            ->add('datecustomerbrief', DateType::class, [
+                'label' => false,
                 'required' => false,
-                'mapped' => false,
                 'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
+            ])
+            ->add('commentdomainname', TextareaType::class, [
+                'label' => 'Nom de domaine',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datedomainname', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentcomingsoon', TextareaType::class, [
-                'label' => 'Page de Maintenance - Commentaire(s)',
+                'label' => 'Page de Maintenance',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datecomingsoon', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentcustomercontentreception', TextareaType::class, [
-                'label' => 'Contenu client - Commentaire(s)',
+                'label' => 'Contenu client',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datecustomercontentreception', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text',
             ])
             ->add('commentpicturesreception', TextareaType::class, [
-                'label' => 'Photos - Commentaire(s)',
+                'label' => 'Photos',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datepicturesreception', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentwebdesignprogress', TextareaType::class, [
-                'label' => 'Maquette en cours - Commentaire(s)',
+                'label' => 'Maquette en cours',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datewebdesignprogress', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentwebdesignsend', TextareaType::class, [
-                'label' => 'Maquette envoyée - Commentaire(s)',
+                'label' => 'Maquette envoyée',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datewebdesignsend', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentwebdesignvalidated', TextareaType::class, [
-                'label' => 'Maquette validée - Commentaire(s)',
+                'label' => 'Maquette validée',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datewebdesignvalidated', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('commentwebintegration', TextareaType::class, [
-                'label' => 'Intégration - Commentaire(s)',
+                'label' => 'Intégration',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])
-            ->add('commentwebtraining', TextareaType::class, [
-                'label' => 'Formation - Commentaire(s)',
+            ->add('datewebintegration', DateType::class, [
+                'label' => false,
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
+            ])
+            ->add('commentwebtraining', TextareaType::class, [
+                'label' => 'Formation',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('datewebtraining', DateType::class, [
+                'label' => false,
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+                'widget' => 'single_text'
             ])
             ->add('online', DateType::class, [
                 'label' => 'Mise en ligne',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datecustomerbrief', DateType::class, [
-                'label' => 'Date du brief',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datedomainname', DateType::class, [
-                'label' => 'Date d\'achat nom de domaine',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datecomingsoon', DateType::class, [
-                'label' => 'Date de mise en ligne de la coming soon',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datecustomercontentreception', DateType::class, [
-                'label' => 'Date de reception',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datepicturesreception', DateType::class, [
-                'label' => 'Date de reception',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datewebdesignprogress', DateType::class, [
-                'label' => 'Date de début',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datewebdesignsend', DateType::class, [
-                'label' => 'Date d\'envoie',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datewebdesignvalidated', DateType::class, [
-                'label' => 'Date de validation',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datewebintegration', DateType::class, [
-                'label' => 'Date de début',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
-            ])
-            ->add('datewebtraining', DateType::class, [
-                'label' => 'Date de début',
-                'required' => false,
-                'label_attr' => ['class' => 'label-custom'],
-                'widget' => 'single_text',
-                'mapped' => true
+                'widget' => 'single_text'
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',

@@ -173,7 +173,7 @@
 										<td>
 										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
 										|
-										<a href="{{ path('steps_detete_admin', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
+										<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
 										</td>
 										{% endif %}	
 									</tr>
@@ -182,7 +182,8 @@
 						</table>
 						{% endif %}
 					{% else %}
-						<div class="text-center">					
+
+						<div class="text-center mt-5">			
 							<form class="form-signin text-center background-login was-validated bg-white-shebam was-validated align-middle" method="post">
 							{% if error %}
 								<div class="message-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div><br>

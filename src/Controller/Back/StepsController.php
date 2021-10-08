@@ -62,11 +62,13 @@ class StepsController extends AbstractController
             $stepsModify = $form->getData();
             $this->entityManager->persist($stepsModify);
             $this->entityManager->flush();
-            $notication = "Étape bien mise à jour";
+            $notication = "Le projet client a été mise à jour";
+            $form = $this->createForm(ModifyStepsType::class, $stepsModify);
         }
         return $this->render('back/steps/modify.html.twig', [
             'form_steps_modify_admin' => $form->createView(),
-            'notification' => $notication
+            'notification' => $notication,
+            'step' => $stepsModify
         ]);
     }
 
@@ -75,13 +77,27 @@ class StepsController extends AbstractController
      * @param Steps $stepsDelete
      * return RedirectResponse
      */
-    public function stepsDelete(Steps $stepsDelete): RedirectResponse
+    public function stepsDeleteAdmin(Steps $stepsDelete): RedirectResponse
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($stepsDelete);
         $em->flush();
 
         return $this->redirectToRoute("steps_list_admin");
+    }
+
+    /**
+     * @Route("/projets-clients/supprimer/{id}", name="steps_detete_front")
+     * @param Steps $stepsDelete
+     * return RedirectResponse
+     */
+    public function stepsDeleteFront(Steps $stepsDelete): RedirectResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($stepsDelete);
+        $em->flush();
+
+        return $this->redirectToRoute("home");
     }
 
     /**

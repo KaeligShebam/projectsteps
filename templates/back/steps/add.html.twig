@@ -1,10 +1,10 @@
 {% extends 'back/index.html.twig' %}
 
-{% block title %}Ajouter une étape - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}
+{% block title %}Ajouter un projet client - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}
 
 {% block body %}
 	<div>
-		{% block titre_admin_page %}Étape - Ajouter{% endblock %}
+		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Ajouter un projet client{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
 		<div class="was-validated form-back background-login is-valid">
@@ -12,57 +12,100 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col">
-						{{ form_row(form_steps_add_admin.customer) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.customerbrief) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.domainname) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.comingsoon) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.customercontentreception) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.picturesreception) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.webdesignprogress) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.webdesignwait) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.webdesignvalidated) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.webtraining) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.webintegration) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.online) }}
+						<div class="row">
+							{{ form_row(form_steps_add_admin.customer) }}
+							<div class="mb-3"></div>						
+						</div>
 					</div>
 					<div class="col">
-						{{ form_row(form_steps_add_admin.commentcustomerbrief) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentdomainname) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentcomingsoon) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentcustomercontentreception) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentpicturesreception) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentwebdesignprogress) }}
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentcustomerbrief) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.customerbrief) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datecustomerbrief) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentdomainname) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.domainname) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datedomainname) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentcomingsoon) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.comingsoon) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datecomingsoon) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentcustomercontentreception) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.customercontentreception) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datecustomercontentreception) }}
+							<div class="mb-3"></div>
+						</div>
 					</div>
 					<div class="col">
-						{{ form_row(form_steps_add_admin.commentwebdesignsend) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentwebdesignvalidated) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentwebintegration) }}
-						<div class="mb-3"></div>
-						{{ form_row(form_steps_add_admin.commentwebtraining) }}
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentpicturesreception) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.picturesreception) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datepicturesreception) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentwebdesignprogress) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.webdesignprogress) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datewebdesignprogress) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentwebdesignsend) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.webdesignsend) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datewebdesignsend) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentwebdesignvalidated) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.webdesignvalidated) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datewebdesignvalidated) }}
+							<div class="mb-3"></div>
+						</div>
 					</div>
 					<div class="col">
-						{{ form_row(form_steps_add_admin.datecustomerbrief) }}
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentwebintegration) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.webintegration) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datewebintegration) }}
+							<div class="mb-3"></div>
+						</div>
+						<div ="row">
+							{{ form_row(form_steps_add_admin.commentwebtraining) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.webtraining) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.datewebtraining) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.online) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_steps_add_admin.submit) }}
+						</div>
 					</div>
-					<div class="mt-3"></div>
-					{{ form_row(form_steps_add_admin.submit) }}
 				</div>
 			</div>
 				{{ form_end(form_steps_add_admin) }}
