@@ -48,7 +48,8 @@ ul.CTAs a {text-align: center;font-size: 0.9em !important;display: block;border-
 
 /* Form */
 .form-success {width: 100%;max-width: 400px!important;}
-.form-back input::placeholder {color: var(--color-yellow-dark);}
+.form-back {width: 100%;max-width: 400px;}
+.form-back input::placeholder {color: var(--color-yellow-dark);width: 450px !important;}
 
 /* ---------------------------------------------------
     CONTENT STYLE

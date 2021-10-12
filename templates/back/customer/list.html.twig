@@ -13,7 +13,6 @@
 				
 	</div>
 	{% block admin_utilisateur %}
-		<div class="container">
 			<div class="d-flex flex-row-reverse">
 				<a href="{{ path('customer_add_admin') }}" title="Ajouter un client" type="button" class="btn btn-outline-light mb-3">
 					<i class="fas fa-plus-circle"></i>
@@ -41,7 +40,6 @@
 				</tbody>
 			</table>
 			<p class="text-center color-blue-dark-shebam">Si tu supprimes un client, penses à verifier avant si une tâche ne lui est pas attribuée.</p>
-		</div>
 	{% endblock %}
 {% endblock %}
 

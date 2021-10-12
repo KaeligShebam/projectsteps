@@ -65,8 +65,7 @@ class AdminUserAddType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Confirmation du mot de passe',
-                        'class' => 'mb-3'
-                    ]
+                        ]
                     ],
             ])
             ->add('roles', ChoiceType::class, array(
