@@ -24,16 +24,16 @@ class StepsController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/admin/etapes-projets", name="steps_list_admin")
+     * @Route("/admin/projets-clients", name="steps_list_admin")
      */
     public function index(StepsRepository $steps): Response
     {
         return $this->render('back/steps/list.html.twig', [
-            'steps' => $steps->findAll(),
+            'steps' => $steps->findBy(array(), array('customer'=>'DESC')),
         ]);
     }
     /**
-     * @Route("/admin/etapes-projets/ajouter", name="steps_add_admin")
+     * @Route("/admin/projets-clients/ajouter", name="steps_add_admin")
      */
     public function stepsAdd(Request $request, StepsRepository $stepsAdd): Response
     {
@@ -51,18 +51,21 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/modifier/{id}", name="steps_modify_admin")
+     * @Route("/admin/projets-clients/modifier/{id}", name="steps_modify_admin")
      */
     public function stepsModify(Request $request, Steps $stepsModify): Response
     {
-        $notication = null;
         $form = $this->createForm(ModifyStepsType::class, $stepsModify);
+        $notication = null;
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $stepsModify = $form->getData();
             $this->entityManager->persist($stepsModify);
             $this->entityManager->flush();
             $notication = "Le projet client a été mise à jour";
+            $stepsModify = new Steps();
+            $stepsModify = $form->getData($stepsModify);
             $form = $this->createForm(ModifyStepsType::class, $stepsModify);
         }
         return $this->render('back/steps/modify.html.twig', [
@@ -73,7 +76,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/{id}/supprimer", name="steps_detete_admin")
+     * @Route("/admin/projets-clients/{id}/supprimer", name="steps_detete_admin")
      * @param Steps $stepsDelete
      * return RedirectResponse
      */
@@ -101,7 +104,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/brief-client/{id}", name="steps_customerbrief_checkbox_admin")
+     * @Route("/admin/projets-clients/brief-client/{id}", name="steps_customerbrief_checkbox_admin")
      */
     public function stepsCustomerbrief(Steps $stepsCustomerbrief)
     {
@@ -115,7 +118,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/coming-soon/{id}", name="steps_comingsoon_checkbox_admin")
+     * @Route("/admin/projets-clients/coming-soon/{id}", name="steps_comingsoon_checkbox_admin")
      */
     public function stepsComingsoon(Steps $stepsComingsoon)
     {
@@ -129,7 +132,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/reception-contenu-client/{id}", name="steps_customercontentreception_checkbox_admin")
+     * @Route("/admin/projets-clients/reception-contenu-client/{id}", name="steps_customercontentreception_checkbox_admin")
      */
     public function stepsCustomerContentReception(Steps $stepsCustomercontentreception)
     {
@@ -143,7 +146,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/reception-des-photos/{id}", name="steps_picturesreception_checkbox_admin")
+     * @Route("/admin/projets-clients/reception-des-photos/{id}", name="steps_picturesreception_checkbox_admin")
      */
     public function stepsPictureReception(Steps $stepsPicturesreception)
     {
@@ -157,7 +160,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/maquette-en-cours/{id}", name="steps_webdesignprogress_checkbox_admin")
+     * @Route("/admin/projets-clients/maquette-en-cours/{id}", name="steps_webdesignprogress_checkbox_admin")
      */
     public function stepsWebdesignProgress(Steps $stepWebdesignProgress)
     {
@@ -171,21 +174,21 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/maquette-en-attente/{id}", name="steps_webdesignwait_checkbox_admin")
+     * @Route("/admin/projets-clients/maquette-envoyee/{id}", name="steps_webdesignsend_checkbox_admin")
      */
-    public function stepsWebdesignWait(Steps $stepWebdesignWait)
+    public function stepsWebdesignWait(Steps $stepWebdesignSend)
     {
-        $stepWebdesignWait->setWebdesignwait(($stepWebdesignWait->getWebdesignwait()) ? false : true);
+        $stepWebdesignSend->setWebdesignSend(($stepWebdesignSend->getWebdesignSend()) ? false : true);
 
         $em = $this->getDoctrine()->getManager();
-        $em->persist($stepWebdesignWait);
+        $em->persist($stepWebdesignSend);
         $em->flush();
 
         return new Response("true");
     }
 
     /**
-     * @Route("/admin/etapes-projets/maquette-validee/{id}", name="steps_webdesignvalidated_checkbox_admin")
+     * @Route("/admin/projets-clients/maquette-validee/{id}", name="steps_webdesignvalidated_checkbox_admin")
      */
     public function stepsWebdesignValidated(Steps $stepWebdesignValidated)
     {
@@ -199,7 +202,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/nom-de-domaine/{id}", name="steps_domainname_checkbox_admin")
+     * @Route("/admin/projets-clients/nom-de-domaine/{id}", name="steps_domainname_checkbox_admin")
      */
     public function stepsWDomainName(Steps $stepDomainname)
     {
@@ -213,7 +216,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/integration/{id}", name="steps_integration_checkbox_admin")
+     * @Route("/admin/projets-clients/integration/{id}", name="steps_integration_checkbox_admin")
      */
     public function stepsIntegration(Steps $stepWebintegration)
     {
@@ -227,7 +230,7 @@ class StepsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/etapes-projets/formation/{id}", name="steps_webtraining_checkbox_admin")
+     * @Route("/admin/projets-clients/formation/{id}", name="steps_webtraining_checkbox_admin")
      */
     public function stepsWbeTraining(Steps $stepWebtraining)
     {

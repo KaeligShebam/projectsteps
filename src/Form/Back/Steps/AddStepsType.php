@@ -43,7 +43,6 @@ class AddStepsType extends AbstractType
                 'label_attr' => ['class' => 'label-custom'],
                 'widget' => 'single_text'
             ])
-
             ->add('commentdomainname', TextareaType::class, [
                 'label' => 'Nom de domaine',
                 'required' => false,
@@ -145,8 +144,6 @@ class AddStepsType extends AbstractType
                 'label_attr' => ['class' => 'label-custom'],
                 'widget' => 'single_text'
             ])
-
-
             ->add('commentwebdesignvalidated', TextareaType::class, [
                 'label' => 'Maquette validée',
                 'required' => false,

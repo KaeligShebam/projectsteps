@@ -492,9 +492,9 @@ class Steps
         return $this->datedomainname;
     }
 
-    public function setDatedomainname(?\DateTimeInterface $datecomingsoon): self
+    public function setDatedomainname(?\DateTimeInterface $datedomainname): self
     {
-        $this->datecomingsoon = $datecomingsoon;
+        $this->datedomainname = $datedomainname;
 
         return $this;
     }

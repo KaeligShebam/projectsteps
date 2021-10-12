@@ -168,7 +168,9 @@
 											{% endif %}
 										</td>
 
-										<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|raw }}{% endif %}</td>
+										<td>{% if step.online is empty %}<span>Inconnue</span>{% else %}{{ step.online|date('d-m-Y') }}{% endif %}</td>
+
+
 										{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
 										<td>
 										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>

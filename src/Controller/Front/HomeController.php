@@ -32,7 +32,7 @@ class HomeController extends AbstractController
             $lastUsername = $authenticationUtils->getLastUsername();
         
         return $this->render('front/home/index.html.twig', [
-            'steps' => $steps->findAll(),
+            'steps' => $steps->findBy(array(), array('customer' => 'DESC')),
             'last_username' => $lastUsername,
             'error' => $error
         ]);
