@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back;
 
+use App\Entity\User;
 use App\Entity\Customer;
 use App\Repository\CustomerRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -60,6 +61,29 @@ class AdminCustomerController extends AbstractController
         }
 
     /**
+     * @Route("/admin/client/{id}/modifier", name="customer_modify_admin")
+     */
+    public function modifyTask(Request $request, Customer $customerModify): Response
+    {
+        $form = $this->createForm(AdminCustomerModifyType::class, $customerModify);
+        $notification = null;
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $customerModify = $form->getData();
+            $this->entityManager->persist($customerModify);
+            $this->entityManager->flush();
+            $notification = 'Client mise à jour !';
+            $form = $this->createForm(AdminCustomerModifyType::class, $customerModify);
+        }
+        return $this->render('back/customer/modify.html.twig', [
+            'form_customer_modify_admin' => $form->createView(),
+            'notification' => $notification,
+            'customer' => $customerModify,
+        ]);
+    }
+
+    /**
      * @Route("/admin/client/{id}/supprimer", name="customer_detete_admin")
      * @param Customer $customerDelete
      * return RedirectResponse
@@ -69,29 +93,6 @@ class AdminCustomerController extends AbstractController
         $em->remove($customerDelete);
         $em->flush();
         return $this->redirectToRoute("customer_list_admin");
-    }
-
-    /**
-     * @Route("/admin/client/{id}/modifier", name="customer_modify_admin")
-     */
-    public function modifyTask(Request $request, Customer $customerModify): Response
-    {
-        $form = $this->createForm(AdminCustomerModifyType::class, $customerModify);
-        $notification = null;
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()) {
-            $customerModify = $form->getData();
-            $this->entityManager->persist($customerModify);
-            $this->entityManager->flush();
-            $notification = 'Client mise à jour !';
-            $form = $this->createForm(AdminCustomerModifyType::class, $customerModify);
-        }
-        return $this->render('back/customer/modify.html.twig',[
-            'form_customer_modify_admin' => $form->createView(),
-            'notification' =>$notification,
-            'customer' => $customerModify
-        ]);   
     }
     
 }

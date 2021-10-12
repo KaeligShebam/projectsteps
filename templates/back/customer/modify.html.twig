@@ -4,24 +4,25 @@
 
 {% block body %}
 	<div>
-		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}<a href="{{path('customer_list_admin')}}">Client</a> - Modification - 
-		<br>ID: {{ customer.id }}{% endblock %}
+		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}<a href="{{path('customer_list_admin')}}">Client</a> - Modification du client <i class="fas fa-arrow-right"></i> {{ customer.name }}{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
-		{% if notification %}
-			<hr>
-				<div class="alert alert-success form-success text-center">{{ notification }}<br>
-					<hr>
-					<a href="{{ path('customer_list_admin') }}">Retourner sur la liste des clients</a>
-				</div>
-			<hr>
-		{% endif %}
-		<div class="was-validated">
-			<div class="row">
-				<div class="col-6">
-					{{ form(form_customer_modify_admin) }}
-				</div>
+		{{ form_start(form_customer_modify_admin) }}
+		<div class="was-validated form-back background-login is-valid">
+			{% if notification %}
+				<hr>
+					<div class="alert alert-success form-sucess text-center">{{ notification }}<br>
+						<hr>
+						<a href="{{ path('customer_list_admin') }}">Retourner sur la liste des clients</a>
+					</div>
+				<hr>
+			{% endif %}
+			<div class="form-group">
+				{{ form_row(form_customer_modify_admin.name) }}
+				<div class="mb-3"></div>
+				{{ form_row(form_customer_modify_admin.submit) }}
 			</div>
 		</div>
+	{{ form_end(form_customer_modify_admin) }}
 	{% endblock %}
 {% endblock %}

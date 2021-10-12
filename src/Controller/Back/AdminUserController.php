@@ -33,18 +33,6 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs/{id}/supprimer", name="user_admin_delete")
-     * @param User $user
-     * return RedirectResponse
-     */
-    public function deleteUser(User $user): RedirectResponse {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($user);
-        $em->flush();
-
-        return $this->redirectToRoute("user_list_admin");
-    }
-        /**
      * @Route("/admin/utilisateurs/ajouter", name="user_add_admin")
      */
     public function addUser(Request $request, UserPasswordEncoderInterface $encoder){
@@ -88,7 +76,22 @@ class AdminUserController extends AbstractController
     }
         return $this->render('back/user/modify.html.twig',[
             'form_user_modify_admin' => $form->createView(),
-            'notification' => $notification
+            'notification' => $notification,
+            'user' => $user,
         ]);   
+    }
+
+    /**
+     * @Route("/admin/utilisateurs/{id}/supprimer", name="user_admin_delete")
+     * @param User $user
+     * return RedirectResponse
+     */
+    public function deleteUser(User $user): RedirectResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        return $this->redirectToRoute("user_list_admin");
     }
 }

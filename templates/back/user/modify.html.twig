@@ -4,12 +4,11 @@
 
 {% block body %}
 	<div>
-{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Utilisateur - Modifier{% endblock %}
+{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Modification de l'utilisateur <i class="fas fa-arrow-right"></i> {{user.lastname }} {{user.firstname }}{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
-
 		{{ form_start(form_user_modify_admin) }}
-		<div class="was-validated background-login is-valid">
+		<div class="was-validated form-back background-login is-valid">
 			{% if notification %}
 				<div class="alert alert-success form-success text-center">{{ notification }}<br>
 					<hr>
@@ -21,6 +20,7 @@
 					{{ form_row(form_user_modify_admin.firstname) }}
 					{{ form_row(form_user_modify_admin.lastname) }}
 					{{ form_row(form_user_modify_admin.roles) }}
+					<div class="mb-3"></div>
 					{{ form_row(form_user_modify_admin.submit) }}
 				</div>
 		</div>
