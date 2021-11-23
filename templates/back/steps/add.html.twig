@@ -7,8 +7,8 @@
 		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Ajouter un projet client{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
+		{{ form_start(form_steps_add_admin) }}
 		<div class="was-validated background-login is-valid">
-			{{ form_start(form_steps_add_admin) }}
 			<div class="form-group">
 				<div class="row">
 					<div class="col">
@@ -108,7 +108,7 @@
 					</div>
 				</div>
 			</div>
-				{{ form_end(form_steps_add_admin) }}
+			{{ form_end(form_steps_add_admin) }}
 		</div>
 	{% endblock %}
 {% endblock %}

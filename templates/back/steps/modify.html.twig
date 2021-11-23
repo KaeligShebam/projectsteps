@@ -4,10 +4,9 @@
 
 {% block body %}
 	<div>
-{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Modification du projet client <i class="fas fa-arrow-right"></i> {{step.customer }}{% endblock %}
+		{% block titre_admin_page %}{% block title_titre_admin_page_base %}{{ parent() }}{% endblock %}Modification du projet client <i class="fas fa-arrow-right"></i> {{step.customer }}{% endblock %}
 	</div>
 	{% block admin_utilisateur %}
-
 		{{ form_start(form_steps_modify_admin) }}
 		<div class="was-validated  background-login is-valid">
 		{% if notification %}

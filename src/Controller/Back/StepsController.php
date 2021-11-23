@@ -3,18 +3,15 @@
 namespace App\Controller\Back;
 
 use App\Entity\Steps;
-use App\Repository\UserRepository;
 use App\Repository\StepsRepository;
 use App\Form\Back\Steps\AddStepsType;
 use App\Form\Back\Steps\ModifyStepsType;
-use App\Repository\CustomerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class StepsController extends AbstractController
 {
