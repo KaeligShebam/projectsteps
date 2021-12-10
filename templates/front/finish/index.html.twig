@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{%  block title %}Accueil - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}</title>
+    </style>
+</head>
+	<body>
+		<div class="mb-5">
+			<h1 class="text-center color-blue-dark-shebam mb-3">Projets Finis</h1>	
+			<div class="mb-4"></div>
+
+			<div class="row">
+				<div class="col padding-mobile">
+						<div class="d-flex flex-row-reverse">
+							<a href="{{ path('steps_add_admin') }}" title="Ajouter un client" type="button" class="btn mb-3">
+								<i class="fas fa-plus-circle"></i>
+							</a>
+						</div>
+						<table class="table table-light">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col">Nom du client</th>
+									<th scope="col">Site internet</th>
+									<th scope="col">Mise en ligne</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for step in steps %}
+									{% if step.finished == true %}
+										<tr class="form-switch">
+											<td>{{ step.customer }}</td>
+											<td><a href="{{ step.commentdomainname }}" target="new">{{ step.commentdomainname }}</a></td>
+											<td>{{ step.online|date('d-m-Y')}} </td>
+											<td>
+											<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
+											|
+											<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
+										
+											</td>
+										</tr>
+									{% endif %}
+								{% endfor %}
+							</tbody>
+						</table>
+				</div>
+			{% include 'popups.html.twig' %}
+		</div>
+	</body>
+</html>
+{% endblock %}

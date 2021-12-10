@@ -188,6 +188,11 @@ class Steps
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $datewebtraining;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $finished;
     
     public function __construct()
     {
@@ -591,6 +596,18 @@ class Steps
     public function setDatewebtraining(?\DateTimeInterface $datewebtraining): self
     {
         $this->datewebtraining = $datewebtraining;
+
+        return $this;
+    }
+
+    public function getFinished(): ?bool
+    {
+        return $this->finished;
+    }
+
+    public function setFinished(?bool $finished): self
+    {
+        $this->finished = $finished;
 
         return $this;
     }

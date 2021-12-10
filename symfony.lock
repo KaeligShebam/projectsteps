@@ -7,8 +7,5 @@
             "version": "2.0",
             "ref": "f5ad42002183a6881962683e6d84bbb25cdfce5d"
         }
-    },
-    "symfony/password-hasher": {
-        "version": "v5.3.8"
     }
 }

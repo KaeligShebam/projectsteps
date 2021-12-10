@@ -3,6 +3,7 @@
 namespace App\Controller\Front;
 
 
+use App\Entity\Steps;
 use App\Repository\StepsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,6 +62,17 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/basculer-vers-projets-finis1/id={id}", name="tofinishedprojects")
+     */
+    public function ChangeStepsForFinishProjectsFront(Steps $steps): Response
+    {
+        $rep = $this->getDoctrine()
+            ->getRepository(Steps::class)
+            ->setChangeStepsForFinishProjectsFront($steps->getId());
+
+        return $this->redirectToRoute("home");
+    }
     /**
      * @Route("/deconnexion", name="app_logout")
      */

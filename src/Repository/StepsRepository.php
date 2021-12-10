@@ -19,32 +19,11 @@ class StepsRepository extends ServiceEntityRepository
         parent::__construct($registry, Steps::class);
     }
 
-    // /**
-    //  * @return Steps[] Returns an array of Steps objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    // UnArchived
+    public function setChangeStepsForFinishProjectsFront($id)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $sql = "update App\Entity\Steps as t set t.finished = 1 where t.id = :id";
+        $query = $this->getEntityManager()->createQuery($sql)->setParameters(['id' => $id]);
+        return $query->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Steps
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
