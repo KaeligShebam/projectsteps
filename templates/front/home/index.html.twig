@@ -174,11 +174,11 @@
 
 										{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
 										<td>
-										<a href="{{ path('tofinishedprojects', {"id": step.id}) }}"><i class="fas fa-chevron-right"></i></a>
+										<a href="{{ path('tofinishedprojects', {"id": step.id}) }}" title="Passer en projet fini"><i class="fas fa-chevron-right"></i></a>
 										|
-										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
+										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"  title="Modifier"><i class="fas fa-cog"></i></a>
 										|
-										<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
+										<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"  title="Supprimer"><i class="fas fa-trash"></i></a>
 										</td>
 										{% endif %}	
 									</tr>

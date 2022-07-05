@@ -19,10 +19,16 @@ class StepsRepository extends ServiceEntityRepository
         parent::__construct($registry, Steps::class);
     }
 
-    // UnArchived
     public function setChangeStepsForFinishProjectsFront($id)
     {
         $sql = "update App\Entity\Steps as t set t.finished = 1 where t.id = :id";
+        $query = $this->getEntityManager()->createQuery($sql)->setParameters(['id' => $id]);
+        return $query->getResult();
+    }
+
+    public function setChangeStepsForInProgressProjectsFront($id)
+    {
+        $sql = "update App\Entity\Steps as t set t.finished = 0 where t.id = :id";
         $query = $this->getEntityManager()->createQuery($sql)->setParameters(['id' => $id]);
         return $query->getResult();
     }

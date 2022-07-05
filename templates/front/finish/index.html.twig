@@ -38,9 +38,11 @@
 											<td><a href="{{ step.commentdomainname }}" target="new">{{ step.commentdomainname }}</a></td>
 											<td>{{ step.online|date('d-m-Y')}} </td>
 											<td>
-											<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"><i class="fas fa-cog"></i></a>
+											<a href="{{ path('toinprogressproject', {"id": step.id}) }}" title="Repasser en projet en cours"><i class="fas fa-chevron-left"></i></a>
 											|
-											<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"><i class="fas fa-trash"></i></a>
+											<a href="{{ path('steps_modify_admin', {"id": step.id}) }}" title="Modifier"><i class="fas fa-cog"></i></a>
+											|
+											<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')" title="Supprimer"><i class="fas fa-trash"></i></a>
 										
 											</td>
 										</tr>

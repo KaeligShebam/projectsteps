@@ -26,14 +26,21 @@
                 <a href="{{ path('home') }}">
                     <img class="navbar-img" src="{{ asset('assets/images/logo-projets-clients-front.png') }}" alt="Logo de la to do list Shebam!">
                 </a>
-                <div class="collapse navbar-collapse" id="navbarText">
-                <span class="navbar-text">
-                </span>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <a href="{{ path('finishedprojects') }}" class="navbar-text color-blue-dark-shebam"  title="Projets finis">Projets finis</a>
-                </ul>
+                {% if app.user %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="collapse navbar-collapse" id="navbarText">
+                            {% if app.request.attributes.get('_route') == 'home' %}
+                            <ul class="navbar-text me-auto mb-2 mb-lg-0 ">
+                                <a href="{{ path('finishedprojects') }}" class="navbar-text color-blue-dark-shebam"  title="Projets finis">Projets finis</a>
+                            </ul>
+                            {% else %}
+                            <ul class="navbar-text me-auto mb-2 mb-lg-0 ">
+                                <a href="{{ path('home') }}" class="navbar-text color-blue-dark-shebam"  title="Projets en cours">Projets en cours</a>
+                            </ul>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endif %}
                 <span class="navbar-text">
                     <ul class="navbar-nav">
 

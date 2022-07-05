@@ -63,7 +63,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/basculer-vers-projets-finis1/id={id}", name="tofinishedprojects")
+     * @Route("/basculer-vers-projets-finis/id={id}", name="tofinishedprojects")
      */
     public function ChangeStepsForFinishProjectsFront(Steps $steps): Response
     {
@@ -73,6 +73,7 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute("home");
     }
+
     /**
      * @Route("/deconnexion", name="app_logout")
      */
@@ -80,4 +81,5 @@ class HomeController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
 }
