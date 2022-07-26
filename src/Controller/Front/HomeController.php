@@ -5,8 +5,12 @@ namespace App\Controller\Front;
 
 use App\Entity\Steps;
 use App\Repository\StepsRepository;
+use Symfony\Component\Mime\Address;
+use App\Repository\CustomerRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,21 +21,29 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class HomeController extends AbstractController
 {
     private $entityManager;
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer, CustomerRepository $customerRepository)
     {
         $this->entityManager = $entityManager;
+        $this->mailer = $mailer;
+        $this->customerRepository = $customerRepository;
     }
+
+    private $mailer;
+    /**
+     * @var CustomerRepository
+     */
+
     /**
      * @Route("/", name="home")
      */
     public function index(StepsRepository $steps, AuthenticationUtils $authenticationUtils): Response
-    { 
+    {
 
-            // get the login error if there is one
-            $error = $authenticationUtils->getLastAuthenticationError();
-            // last username entered by the user
-            $lastUsername = $authenticationUtils->getLastUsername();
-        
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
         return $this->render('front/home/index.html.twig', [
             'steps' => $steps->findBy(array(), array('customer' => 'DESC')),
             'last_username' => $lastUsername,
@@ -53,7 +65,7 @@ class HomeController extends AbstractController
                     $task->setPosition($cpt); //on definit la position
                     $cpt++; //on ajoute une rangée
                 }
-            break;
+                break;
         }
 
         $this->entityManager->flush();
@@ -75,11 +87,29 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/projet/mail/id={id}", name="mailfinish")
+     */
+    public function sendMail(Steps $step): Response
+    {
+        $message = (new  TemplatedEmail())
+            ->to('julien@camdsi.fr')
+            ->from(new Address('support@shebam.fr', 'Support WEB Shebam'))
+            ->cc('support@shebam.fr')
+            ->subject('Site Internet Fini')
+            ->htmlTemplate('front/mail/mail-project.html.twig')
+            ->context([
+                'step' => $step
+            ]);
+        $this->mailer->send($message);
+
+        return $this->redirectToRoute("home");
+    }
+
+    /**
      * @Route("/deconnexion", name="app_logout")
      */
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
-
 }

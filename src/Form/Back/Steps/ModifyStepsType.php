@@ -30,7 +30,7 @@ class ModifyStepsType extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('commentdomainname', TextareaType::class, [
-                'label' => 'Nom de domaine',
+                'label' => 'Commentaire nom de domaine',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])
@@ -39,6 +39,11 @@ class ModifyStepsType extends AbstractType
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
                 'widget' => 'single_text'
+            ])
+            ->add('domain', TextType::class, [
+                'label' => 'Nom de domaine',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
             ])
             ->add('commentcomingsoon', TextareaType::class, [
                 'label' => 'Page de Maintenance',

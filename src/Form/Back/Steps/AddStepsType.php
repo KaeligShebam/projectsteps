@@ -44,12 +44,17 @@ class AddStepsType extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('commentdomainname', TextareaType::class, [
-                'label' => 'Nom de domaine',
+                'label' => 'Commentaire nom de domaine',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])
             ->add('domainname', CheckboxType::class, [
                 'label' => 'Fait',
+                'required' => false,
+                'label_attr' => ['class' => 'label-custom'],
+            ])
+            ->add('domain', TextType::class, [
+                'label' => 'Nom de domaine',
                 'required' => false,
                 'label_attr' => ['class' => 'label-custom'],
             ])

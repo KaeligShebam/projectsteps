@@ -18,6 +18,7 @@
 					<th scope="col">Nom du client</th>
 					<th scope="col">Brief client</th>
 					<th scope="col">Nom de domaine</th>
+					<th scope="col">Commentaire nom de domaine</th>
 					<th scope="col">Coming soon</th>
 					<th scope="col">Contenu client</th>
 					<th scope="col">Photos</th>
@@ -44,6 +45,7 @@
 							{% else %}
 							{% endif %}
 						</td>
+						<td><a href="{{ step.domain }}" target="new"></a>{{ step.domain }}</td>
 						<td>
 							<input type="checkbox" class="domainname form-check-input" {{ (step.domainname) ? 'checked' : ''}} data-domainname="{{step.id}}">
 							{% if (step.commentdomainname) or (step.datedomainname) %}

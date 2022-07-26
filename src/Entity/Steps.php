@@ -132,6 +132,11 @@ class Steps
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $domain;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $commentwebintegration;
 
     /**
@@ -447,6 +452,18 @@ class Steps
     public function getCommentdomainname(): ?string
     {
         return $this->commentdomainname;
+    }
+
+    public function getDomain(): ?string
+    {
+        return $this->domain;
+    }
+
+    public function setDomain(?string $domain): self
+    {
+        $this->domain = $domain;
+
+        return $this;
     }
 
     public function setCommentdomainname(?string $commentdomainname): self

@@ -31,6 +31,7 @@
 									<th scope="col">Nom du<br> client</th>
 									<th scope="col">Brief<br> client</th>
 									<th scope="col">Nom de<br> domaine</th>
+									<th scope="col">Commentaire nom <br>de domaine</th>
 									<th scope="col">Coming<br> soon</th>
 									<th scope="col">Contenu<br> client</th>
 									<th scope="col">Photos</th>
@@ -61,6 +62,7 @@
 											{% else %}
 											{% endif %}
 										</td>
+										<td><a href="{{ step.domain }}" target="new"></a>{{ step.domain }}</td>
 										<td>
 											<input type="checkbox" class="domainname form-check-input" {{ (step.domainname) ? 'checked' : ''}} data-domainname="{{step.id}}">
 											{% if (step.commentdomainname) or (step.datedomainname) %}
@@ -175,6 +177,8 @@
 										{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN')%}
 										<td>
 										<a href="{{ path('tofinishedprojects', {"id": step.id}) }}" title="Passer en projet fini"><i class="fas fa-chevron-right"></i></a>
+										|
+										<a href="{{ path('mailfinish', {"id": step.id}) }}"><i class="fas fa-envelope"></i></a>
 										|
 										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"  title="Modifier"><i class="fas fa-cog"></i></a>
 										|
