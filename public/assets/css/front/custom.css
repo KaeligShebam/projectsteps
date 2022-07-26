@@ -8,7 +8,7 @@ hr{height: 3px;background: var(--color-yellow-dark); width: 10%;}
 .label-custom {color: var(--blue-dark-shebam) !important}
 .notification-success-custom{color: var(--blue-shebam) !important}
 .form-switch .form-check-input{margin-left: 0 !important;}
-
+.activecurrent{color: var(--yellow-shebam) !important;}
 /* Custom Buttons */
 .btn-blue-shebam{background: var(--blue-dark-shebam);color: var(--color-white);border-radius: 5px;padding: 10px 15px;border: none;}
 .btn-blue-shebam:hover{background: var(--color-white);color: var(--blue-dark-shebam); transition: ease 0.5s;border: 1px solid var(--blue-dark-shebam)}

@@ -178,8 +178,10 @@
 										<td>
 										<a href="{{ path('tofinishedprojects', {"id": step.id}) }}" title="Passer en projet fini"><i class="fas fa-chevron-right"></i></a>
 										|
+										{% if step.webtraining == 0 %}{% else %}
 										<a href="{{ path('mailfinish', {"id": step.id}) }}"><i class="fas fa-envelope"></i></a>
 										|
+										{% endif %}
 										<a href="{{ path('steps_modify_admin', {"id": step.id}) }}"  title="Modifier"><i class="fas fa-cog"></i></a>
 										|
 										<a href="{{ path('steps_detete_front', {"id": step.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')"  title="Supprimer"><i class="fas fa-trash"></i></a>
