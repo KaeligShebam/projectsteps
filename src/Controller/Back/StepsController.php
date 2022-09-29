@@ -29,21 +29,25 @@ class StepsController extends AbstractController
             'steps' => $steps->findBy(array(), array('customer'=>'DESC')),
         ]);
     }
+
     /**
      * @Route("/admin/projets-clients/ajouter", name="steps_add_admin")
      */
-    public function stepsAdd(Request $request, StepsRepository $stepsAdd): Response
+    public function stepsAdd(Request $request): Response
     {
         $stepsAdd = new Steps();
         $form = $this->createForm(AddStepsType::class, $stepsAdd);
+        $notification = null;
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($stepsAdd);
             $this->entityManager->flush();
-            return $this->redirectToRoute("steps_list_admin");
+            $stepsAdd = new Steps();
+            $form = $this->createForm(AddStepsType::class, $stepsAdd);
         }
         return $this->render('back/steps/add.html.twig', [
             'form_steps_add_admin' => $form->createView()
+
         ]);
     }
 
