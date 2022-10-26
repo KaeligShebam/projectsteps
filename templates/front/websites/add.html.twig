@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<title>{%  block title %}Ajouter un site internet - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}</title>
+
+{% block body %}
+		{{ form_start(form_website_add_front) }}
+		<div class="was-validated is-valid container">
+			<div class="form-group">
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							{{ form_row(form_website_add_front.domainname) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_website_add_front.description) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_website_add_front.websitetype) }}
+							<div class="mb-3"></div>
+							{{ form_row(form_website_add_front.submit) }}							
+						</div>
+					</div>
+				</div>
+			</div>
+			{{ form_end(form_website_add_front) }}
+		</div>
+{% endblock %}
+{% endblock %}
