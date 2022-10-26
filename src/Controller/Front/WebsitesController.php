@@ -5,7 +5,7 @@ namespace App\Controller\Front;
 use App\Entity\Website;
 use App\Repository\WebsiteRepository;
 
-use App\Form\Back\Steps\AddWebsiteType;
+use App\Form\Front\AddWebsiteType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,15 +37,15 @@ class WebsitesController extends AbstractController
      */
     public function stepsAdd(Request $request): Response
     {
-        $stepsAdd = new Website();
-        $form = $this->createForm(AddWebsiteType::class, $stepsAdd);
+        $websiteAdd = new Website();
+        $form = $this->createForm(AddWebsiteType::class, $websiteAdd);
         $notification = null;
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->persist($stepsAdd);
+            $this->entityManager->persist($websiteAdd);
             $this->entityManager->flush();
-            $stepsAdd = new Website();
-            $form = $this->createForm(AddWebsiteType::class, $stepsAdd);
+            $websiteAdd = new Website();
+            $form = $this->createForm(AddWebsiteType::class, $websiteAdd);
         }
         return $this->render('front/websites/add.html.twig', [
             'form_website_add_front' => $form->createView()

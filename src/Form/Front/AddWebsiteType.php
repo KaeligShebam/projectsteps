@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Form\Back\Steps;
+namespace App\Form\Front;
 
-use App\Entity\Steps;
 use App\Entity\Website;
+use Doctrine\ORM\Query\Expr\Select;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,6 +19,7 @@ class AddWebsiteType extends AbstractType
         $builder
             ->add('domainname', TextType::class, [
                 'label' => 'Nom de domaine :',
+                'attr' => ['placeholder' => 'Ecrire comme ça: site.fr'],
                 'required' => true,
                 'label_attr' => ['class' => 'label-custom'],
             ])
@@ -26,10 +28,11 @@ class AddWebsiteType extends AbstractType
                 'required' => true,
                 'label_attr' => ['class' => 'label-custom'],
             ])
-            ->add('websitetype', TextType::class, [
+            ->add('websitetype', ChoiceType::class, [
                 'label' => 'Type de site :',
+                'choices' => ['Site vitrine' => 'Site vitrine', 'E-commerce' => 'E-commerce'],
                 'required' => true,
-                'attr' => ['class' => 'label-custom', 'placeholder' => 'Site vitrine ou E-Commerce'],
+                'attr' => ['class' => 'label-custom'],
             ])
            
             ->add('submit', SubmitType::class, [
