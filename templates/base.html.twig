@@ -34,7 +34,7 @@
                                     navbar-text color-blue-dark-shebam"  title="Projets en cours">Projets en cours</a>
                                 <a href="{{ path('finishedprojects') }}" class="{% if app.request.attributes.get('_route') starts with 'finishedprojects' %}activecurrent{% endif %}
                                     navbar-text color-blue-dark-shebam"  title="Projets finis">Projets finis</a>
-                                <a href="{{ path('websites') }}" class="{% if app.request.attributes.get('_route') starts with 'finishedprojects' %}activecurrent{% endif %}
+                                <a href="{{ path('websites') }}" class="{% if app.request.attributes.get('_route') starts with 'websites' %}activecurrent{% endif %}
                                     navbar-text color-blue-dark-shebam"  title="Liste sites internets">Sites internets clients</a>
                             </ul>
                         </div>

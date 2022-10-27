@@ -35,7 +35,7 @@
 									{% if step.finished == true %}
 										<tr class="form-switch">
 											<td>{{ step.customer }}</td>
-											<td><a href="{{ step.commentdomainname }}" target="new">{{ step.commentdomainname }}</a></td>
+											<td><a href="{{ step.domain }}" target="new">{{ step.domain }}</a></td>
 											<td>{{ step.online|date('d-m-Y')}} </td>
 											<td>
 											<a href="{{ path('toinprogressproject', {"id": step.id}) }}" title="Repasser en projet en cours"><i class="fas fa-chevron-left"></i></a>
