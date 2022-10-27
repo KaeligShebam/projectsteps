@@ -28,7 +28,7 @@ class WebsitesController extends AbstractController
     {
 
         return $this->render('front/websites/index.html.twig', [
-            'websites' => $website->findAll()
+            'websites' => $website->findBy(array(), array('domainname' => 'ASC'))
         ]);
     }
 
@@ -54,7 +54,32 @@ class WebsitesController extends AbstractController
     }
 
     /**
-     * @Route("/sites-internet-clients/{id}/supprimer", name="websites_detete_front")
+     * @Route("/sites-internet-clients/modifier/{id}", name="website_modify_front")
+     */
+    public function websiteModify(Request $request, Website $websiteModify): Response
+    {
+        $form = $this->createForm(ModifyStepsType::class, $websiteModify);
+        $notication = null;
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $websiteModify = $form->getData();
+            $this->entityManager->persist($websiteModify);
+            $this->entityManager->flush();
+            $notication = "Le site internet a été mis à jour";
+            $websiteModify = new Steps();
+            $websiteModify = $form->getData($websiteModify);
+            $form = $this->createForm(ModifyStepsType::class, $websiteModify);
+        }
+        return $this->render('front/websites/modify.html.twig', [
+            'form_website_modify_front' => $form->createView(),
+            'notification' => $notication,
+            'website' => $websiteModify
+        ]);
+    }
+
+    /**
+     * @Route("/sites-internet-clients/{id}/supprimer", name="website_detete_front")
      * @param Steps $stepsDelete
      * return RedirectResponse
      */

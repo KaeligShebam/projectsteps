@@ -17,13 +17,13 @@
 					<i class="fas fa-plus-circle"></i>
 				</a>
 			</div>
-			<table class="table table-light">
+			<table class="table table-light" data-toggle="table" data-pagination="true" data-search="true">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">Nom de domaine</th>
-						<th scope="col">Description</th>
-						<th scope="col">Type de site</th>
-						<th scope="col">Action</th>
+						<th data-sortable="true" scope="col">Nom de domaine</th>
+						<th data-sortable="true" scope="col">Description</th>
+						<th data-sortable="true" scope="col">Type de site</th>
+						<th data-sortable="true" scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,7 +33,9 @@
 							<td>{{ website.description }}</td>
 							<td>{{ website.websitetype }}</td>
 							<td>
-								<a href="{{ path('websites_detete_front', {"id": website.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')" title="Supprimer"><i class="fas fa-trash"></i></a>
+								<a href="{{ path('website_modify_front', {"id": website.id}) }}"><i class="fas fa-cog"></i></a>
+								|
+								<a href="{{ path('website_detete_front', {"id": website.id}) }}" onclick="return confirm('Attention vous vous apprettez à supprimer une étape')" title="Supprimer"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 					{% endfor %}
