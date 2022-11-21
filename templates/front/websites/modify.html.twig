@@ -3,14 +3,16 @@
 <title>{%  block title %}Modifier site internet - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}</title>
 
 {% block body %}
+	<div class="container">
+		<h1 class="text-center color-blue-dark-shebam mb-5">modification du site: {{website.domainname}}</h1>	
 		{{ form_start(form_website_modify_front) }}
+		<div class="was-validated is-valid container">
 		{% if notification %}
 			<div class="alert alert-success form-success text-center">{{ notification }}<br>
-				<hr>
-				<a href="{{ path('wesbite') }}">Retourner à la liste</a>
+				
+				<a class="notification-success-custom" href="{{ path('websites') }}">Retourner à la liste</a>
 			</div>
 		{% endif %}
-		<div class="was-validated is-valid container">
 			<div class="form-group">
 				<div class="row">
 					<div class="col">
@@ -28,5 +30,6 @@
 			</div>
 			{{ form_end(form_website_modify_front) }}
 		</div>
+	</div>
 {% endblock %}
 {% endblock %}

@@ -32,4 +32,23 @@ class FinishedProjectsController extends AbstractController
         return $this->redirectToRoute("finishedprojects");
     }
 
+    /**
+     * @Route("/projet/mail/id={id}", name="mailfinish")
+     */
+    public function sendMail(Steps $step): Response
+    {
+        $message = (new  TemplatedEmail())
+            ->to('julien@camdsi.fr', 'mathilde@shebam.fr')
+            ->from(new Address('support@shebam.fr', 'Support WEB Shebam'))
+            ->cc('support@shebam.fr')
+            ->subject('Site Internet Fini')
+            ->htmlTemplate('front/mail/mail-project.html.twig')
+            ->context([
+                'step' => $step
+            ]);
+        $this->mailer->send($message);
+
+        return $this->redirectToRoute("home");
+    }
+
 }

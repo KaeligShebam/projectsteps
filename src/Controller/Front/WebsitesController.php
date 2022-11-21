@@ -3,9 +3,10 @@
 namespace App\Controller\Front;
 
 use App\Entity\Website;
-use App\Repository\WebsiteRepository;
-
 use App\Form\Front\AddWebsiteType;
+
+use App\Form\Front\ModifyWebsiteType;
+use App\Repository\WebsiteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,7 +59,7 @@ class WebsitesController extends AbstractController
      */
     public function websiteModify(Request $request, Website $websiteModify): Response
     {
-        $form = $this->createForm(ModifyStepsType::class, $websiteModify);
+        $form = $this->createForm(ModifyWebsiteType::class, $websiteModify);
         $notication = null;
         $form->handleRequest($request);
 
@@ -67,9 +68,9 @@ class WebsitesController extends AbstractController
             $this->entityManager->persist($websiteModify);
             $this->entityManager->flush();
             $notication = "Le site internet a été mis à jour";
-            $websiteModify = new Steps();
+            $websiteModify = new Website();
             $websiteModify = $form->getData($websiteModify);
-            $form = $this->createForm(ModifyStepsType::class, $websiteModify);
+            $form = $this->createForm(ModifyWebsiteType::class, $websiteModify);
         }
         return $this->render('front/websites/modify.html.twig', [
             'form_website_modify_front' => $form->createView(),

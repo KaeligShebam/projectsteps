@@ -3,6 +3,8 @@
 <title>{%  block title %}Ajouter un site internet - {% block title_base %}{{ parent() }}{% endblock %}{% endblock %}</title>
 
 {% block body %}
+	<div class="container">
+		<h1 class="text-center color-blue-dark-shebam mb-5">Ajout d'un site internet</h1>	
 		{{ form_start(form_website_add_front) }}
 		<div class="was-validated is-valid container">
 			<div class="form-group">
@@ -22,5 +24,6 @@
 			</div>
 			{{ form_end(form_website_add_front) }}
 		</div>
+	</div>
 {% endblock %}
 {% endblock %}
